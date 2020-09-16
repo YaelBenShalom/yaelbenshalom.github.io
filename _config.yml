@@ -1,0 +1,23 @@
+# Site settings
+title:              Yael Ben Shalom - Portfolio
+email:              yael.bshalom@gmail.com@gmail.com
+description:        "Yael Ben Shalom - Portfolio"
+url:                "https://yaelbenshalom.github.io/"
+baseurl:            /msr-student-template/YaelBenShalom.github.io
+
+github_username: YaelBenShalom
+LinkedIn_username: Yael Ben Shalom
+facebook_username: Yael Ben Shalom
+
+# File structure settings
+image_path:         /public/images
+
+# Build settings
+markdown:           kramdown
+permalink:          pretty
+
+# Collection definitions and settings
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
