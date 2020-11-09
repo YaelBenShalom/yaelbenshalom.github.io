@@ -2,8 +2,8 @@
 title:              Yael Ben Shalom - Portfolio
 email:              yael.bshalom@gmail.com@gmail.com
 description:        "Yael Ben Shalom - Portfolio"
-url:                "https://yaelbenshalom.github.io/"
-baseurl:            /msr-student-template/YaelBenShalom.github.io
+url:                "http://localhost:4000"
+baseurl:            /YaelBenShalom.github.io
 
 github_username: YaelBenShalom
 LinkedIn_username: Yael Ben Shalom
