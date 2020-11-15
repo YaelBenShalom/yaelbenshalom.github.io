@@ -188,34 +188,58 @@
 <div class="portfolio-modal modal fade modal-xl" id="project4" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            
+
             <!-- Modal Header -->
-            <div class="col-lg-12 text-center">
-                <div class="modal-header">
-                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <!-- <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-                        <span aria-hidden="true">&times;</span>
-                    </button> -->
-                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button> -->
-                    <h3 class="modal-title">Robot Navigation and Control</h3>
-                    <a class="boxed">Python  |  Autonomous Vehicle  |  Artificial Intelligence  |  Motion planning  |  Path planning  |  Arduino</a>
-                </div>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3 class="text-center modal-title">Robot Navigation and Control</h3>
+                <h4 class="text-center">Python  |  Autonomous Vehicle  |  Artificial Intelligence  |  Motion planning  |  Path planning  |  Arduino</h4>
             </div>
             
             <!-- Modal body -->
             <div class="modal-body">
                 <p></p>
                 <h3>Description</h3>       
-                <p>...Text...</p>
+                <p>In this project, I build a wheeled robot and programmed it to navigate autonomously through a series of tasks,
+                    Using Arduino, motors, encoders and distance sensors.</p>
                 <p></p>
-                <h3>Goals</h3>       
-                <p>...Text...</p>
+                <h3>The tasks</h3>  
+                <p>  
+                  <ol>
+                    <li>Navigating through a maze</li>
+                    <li>Driving through changing-slope way, keeping constant roll</li>
+                    <li>following curved wall, keeping constant distance</li>
+                    <li>Driving on slope with changing gradient, keeping constant speed</li>
+                    <li>Locating and reaching the finish line flag</li>
+                  </ol>  
+                </p>
                 <p></p>
-                <h3>Overview</h3>
-                <h4>Overview 1</h4> 
+                <h3>System Description</h3>
+                <p>I used several elements to control the robot motion:
+                  <ul>  
+                    <li>Arduino</li>
+                    <dl>
+                        <li>Motors & encoders:</li>
+                        <dd>- PMW motor and encoder - One on each rear wheel to activate and control the motion</dd>
+                        <dd>- Servo motor - Located on the front of the vehicle and used to rotate the TOF sensor to desired scanning angle</dd>
+                    <dl>
+                        <li>Sensors</li>
+                        <dd>- IR sensor - One on each side of the vehicle to measure side distance</dd>
+                        <dd>- TOF (Time of Flight) sensor - Assembled on the servo motor to scan the surrounding space</dd>
+                        <dd>- US (ultrasonik) sensor - Located on the top of the vehicle to measure distance from objects above the vehicle</dd>
+                        <dd>- IMU 9250 (9 DOF) - Measures orientation (Gyroscope) and acceleration (Accelerometer). Compass is not in use</dd>
+                    <li>Led matrix - Indicates mission number and mission success/fail</li>
+                  </ul> 
+                </p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/project4_system_explanation.png" alt="" width="600" height="400"></p>
+                <p class="text-center">The system</p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/vehicle.jpg" alt="" width="600" height="400"></p>
+                <p class="text-center">The system</p>
+                <p></p>
+
+                <!-- <h4>Overview 1</h4> 
                 <p>...Text...</p>
                 <p></p>
                 <h3>Overview 2</h3> 
@@ -226,20 +250,22 @@
                 <p></p>
                 <h3>Demo</h3> 
                 <h4>Demo1</h4> 
-                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/healer_baxter/piano.png" alt=""> -->
+                <img class="img-fluid d-block mx-auto" src="img/portfolio/healer_baxter/piano.png" alt="">
                 <p>...Text...</p>
                 <h4>Demo2</h4> 
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lJ78-UlrxD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                <p>...Text...</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/lJ78-UlrxD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>...Text...</p> -->
+                <!-- <button type="button" href="https://github.com/YaelBenShalom/Autonomous-Robot-Navigation-and-Control" class="btn btn-primary" target="_blank">Check Project on Github</button>     -->
+
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <div class="col-lg-12 text-center">
+                <div class="text-center">
                     <p></p>
-                    <button type="button" href="https://github.com/YaelBenShalom" class="btn btn-primary">Check Project on Github</button>    
+                    <button type="button" href="https://github.com/YaelBenShalom/Autonomous-Robot-Navigation-and-Control" class="btn btn-primary" target="_blank">Check Project on Github</button>    
                     <p></p>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close Project</button>
+                    <button type="button" class="btn btn-primary center" data-dismiss="modal">Close Project</button>
                 </div>
             </div>
         </div>
