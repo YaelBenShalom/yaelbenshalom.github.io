@@ -135,7 +135,7 @@
                     <img class="center" src="img/portfolio/RRT/RRT-pseudocode.png" alt=""></p>
                 <p class="text-center">The implementation pseudocode</p>
                 <br>
-                <h4 style="font-size:20px">Simple RRT</h4> 
+                <h4 style="font-size:22px">Simple RRT</h4> 
                 <p>In this part I implemented a simple RRT algorithm in 2D with the domain of [0,100]×[0,100] and incremental distance of 1.
                 <br>The program coverages uniformly over the whole space.</p>
                 <p>The following figure shows the algorithm implementation after 500 iterations:</p>
@@ -143,7 +143,7 @@
                     <img class="center" src="img/portfolio/RRT/Task_1.png" alt=""></p>
                 <p class="text-center">Simple RRT</p>
                 <br>
-                <h4 style="font-size:20px">Planning a Path with Obstacles</h4> 
+                <h4 style="font-size:22px">Planning a Path with Obstacles</h4> 
                 <p>In this part I implemented an RRT algorithm with obstacles.
                 <br>The path planning algorithm checks the path for collisions and avoids the round obstacles.</p>
                 <p>The following figure shows the algorithm implementation after 500 iterations:</p>
@@ -264,7 +264,7 @@
                 </ol>
                 <br>
                 <h3>Overview</h3>
-                <h4 style="font-size:20px">Part 1 - Pen Recognition</h4> 
+                <h4 style="font-size:22px">Part 1 - Pen Recognition</h4> 
                 <p>In this part, I used computer vision packages (cv2) to analyze a video in order to find a purple pen.
                     <br> Then, I used the Realsense 3D camera to locate the pen's coordinates.
                 </p>
@@ -273,14 +273,14 @@
                     <img class="center" src="img/portfolio/pen_recognition/pen-recognition.gif" class="img-responsive" alt="Responsive image"></p>
                 <p class="text-center">Pen recognition</p>
                 <p></p>
-                <h4 style="font-size:20px">Part 2 - Pen Stealing</h4> 
-                <p>In this part, I used the interbotix motion and control packages to move the arm to a specified coordinates and steal the pen</p>
+                <h4 style="font-size:22px">Part 2 - Pen Stealing</h4> 
+                <p>In this part, I used the interbotix motion and control packages to move the arm to a specified coordinates and steal the pen.</p>
                 <p>The arm motion can be split to 4 parts:</p>
                 <ol style="font-size:16px">
                     <li>Move the arm to the specified coordinates with an open gripper. The coordinates of the pen found using the pen recognition on part 1</li>
-                    <li>Close the gripper on the pen.</li>
-                    <li>Move the arm to a location above the floor.</li>
-                    <li>Open the gripper and release the pen on the floor.</li>
+                    <li>Close the gripper on the pen</li>
+                    <li>Move the arm to a location above the floor</li>
+                    <li>Open the gripper and release the pen on the floor</li>
                 </ol>
                 <p>The following video is a demostration of the pen seizing:</p>
                 <p class="text-center">
@@ -317,30 +317,58 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <p></p>
                 <h3>Description</h3>       
-                <p>...Text...</p>
-                <p></p>
+                <p>In this project, me and my team created a maze exploration software.
+                    <br>In the maze, a simulated robotic agent takes discrete steps on a grid in the maze, while trying to navigate to a goal.</p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/maze/maze.gif" class="img-responsive" alt="Responsive image"></p>
+                <p class="text-center">Solving 31x11 maze</p>
                 <h3>Goals</h3>       
-                <p>...Text...</p>
-                <p></p>
+                <p>The goal of this project is to generate a random maze (sized according to users choise), and solve it for a simulated robotic agent.</p>
+                <br>
                 <h3>Overview</h3>
-                <h4>Overview 1</h4> 
-                <p>...Text...</p>
-                <p></p>
-                <h3>Overview 2</h3> 
-                <p>...Text...</p>
-                <p></p>
-                <h3>Overview 3</h3>       
-                <p>...Text...</p>
-                <p></p>
-                <h3>Demo</h3> 
-                <h4>Demo1</h4> 
-                <!-- <img class="img-fluid d-block mx-auto" src="img/portfolio/healer_baxter/piano.png" alt=""> -->
-                <p>...Text...</p>
-                <h4>Demo2</h4> 
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lJ78-UlrxD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                <p>...Text...</p>
+                <h4 style="font-size:22px">Core Tasks</h4> 
+                <ol style="font-size:16px">
+                    <li>Maze generation</li>
+                    <li>Maze state</li>
+                    <li>Solve the maze</li>
+                    <li>Display the maze</li>
+                    <li>Maze interface</li>
+                </ol>
+                <br>
+                <h4 style="font-size:22px">Maze generation</h4> 
+                <p>Generate a maze by implementing the randomized Prim's maze generation algorithm.
+                <br>The pseudocode for this algorithm:</p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/maze/pseudocode.png" class="img-responsive" alt="Responsive image"></p>
+                <br>        
+                <h4 style="font-size:22px">Maze state</h4> 
+                <p>Track the state of the maze and determine if a grid square is wall/free, or is it the goal/start point
+                    <br>Be able to find the 1-hop and 2-hop neighbors of a cell (for maze generation and exploration).</p>
+                <br>
+                <h4 style="font-size:22px">Solve the maze</h4> 
+                <p>Implementat the "Wavefront Planner" maze solving algorithms.
+                <br>The pseudocode for Wavefront Planner algorithm:</p>
+                <ol style="font-size:16px">
+                    <li>Breadth-first search approach</li>
+                    <li>Start at the goal</li>
+                    <li>Advance one square in every direction and mark with a 1</li>
+                    <li>From each 1, advance to every open square and mark with a 2</li>
+                    <li>From each n-1 square advance to every open square and mark with an n</li>
+                    <li>Stop when there are no more squares to explore</li>
+                    <li>From any starting point, move to the adjacent cell with the lowest number</li>
+                    <li>Stop at the goal</li>
+                </ol>   
+                <p>The algorithm finds the shortest path to a given goal from every starting point, but it requires full knowledge of the maze.</p>
+                <br>
+                <h4 style="font-size:22px">Maze interface and display</h4> 
+                <p>Display the maze's walls, free cells, start position, and goal position.
+                    <br>Display the robot position as it moves.</p>         
+                <br>       
+                <p>In the following video, the software generates and solves a 20x13 maze:</p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/maze/maze2.gif" class="img-responsive" alt="Responsive image"></p>
+                <p class="text-center">Solving 20x13 maze</p>
             </div>
 
             <!-- Modal footer -->
