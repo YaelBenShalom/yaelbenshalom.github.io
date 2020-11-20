@@ -94,18 +94,20 @@
                 <h3>Description</h3>       
                 <p>In this project, I build a wheeled robot and programmed it to navigate autonomously through a series of tasks,
                     Using Arduino, motors, encoders and distance sensors.</p>
-                <br>
-                <h3>The tasks</h3>  
+                <p></p>
+                <h3>Goal</h3>       
+                <p>The main goal was to successfully pass a series of tasks in an obsticle course, as fast as possible.</p>
+                <h4 style="font-size:20px">The Tasks:</h3>  
                 <p>  
                   <ol style="font-size:16px">
-                    <li>Navigating through a maze</li>
-                    <li>Driving through changing-slope way, keeping constant roll</li>
-                    <li>following curved wall, keeping constant distance</li>
-                    <li>Driving on slope with changing gradient, keeping constant speed</li>
+                    <li>Navigating through a maze (Maze navigation and explotarion)</li>
+                    <li>Driving through changing-slope path, keeping constant roll</li>
+                    <li>following curved wall, keeping constant distance from it</li>
+                    <li>Driving on a changing-gradient slope, keeping constant speed</li>
                     <li>Locating and reaching the finish line flag</li>
                   </ol>  
                 </p>
-                <br>
+                <p></p>
                 <h3>System Description</h3>
                 <p>I used several components to control the robot motion:
                   <ul style="font-size:16px">  
@@ -134,15 +136,26 @@
                 <br>
                 <div class="row no-gutter">
                     <div class="col-lg-4 col-sm-6">
-                      <img src="img/portfolio/mechatronics/task1.jpg" alt="Snow" style="width:100%">
+                      <img src="img/portfolio/mechatronics/task1.jpg" alt="Task 1 - maze" style="width:100%">
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <img src="img/portfolio/mechatronics/task2.jpg" alt="Forest" style="width:100%">
+                        <img src="img/portfolio/mechatronics/task2.jpg" alt="Task 2 - changing-slope" style="width:100%">
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <img src="img/portfolio/mechatronics/task4.jpg" alt="Mountains" style="width:100%">
+                        <img src="img/portfolio/mechatronics/task3.jpg" alt="Task 3 - following curved wall" style="width:100%">
                     </div>
-                  </div>
+                </div>
+                <div class="row no-gutter">
+                    <div class="col-lg-4 col-sm-6">
+                      <img src="img/portfolio/mechatronics/obstacle_course.jpg" alt="The obstacle course" style="width:100%">
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="img/portfolio/mechatronics/programming.jpg" alt="Programming" style="width:100%">
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <img src="img/portfolio/mechatronics/vehicle2.jpg" alt="Mission number indication" style="width:100%">
+                    </div>
+                </div>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -175,28 +188,28 @@
             <div class="modal-body">
                 <h3>Description</h3>       
                 <p>A Rapidly-Exploring Random Tree (RRT) is a fundamental path planning algorithm in robotics.
-                <br>In This project, I implemented RRT exploration algorithm in a two-dimensional domain.</p>
-                <br>
+                    <br>In This project, I implemented RRT exploration algorithm in a two-dimensional domain.</p>
+                <p></p>
                 <h3>Goal</h3>       
                 <p>Use the RRT algorithm to find the goal coordinate in a two-dimensional domain, while avoiding obstacles.</p>
-                <br>
+                <p></p>
                 <h3>Overview</h3>
                 <p>The pseudocode for the implementation:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/RRT/RRT-pseudocode.png" alt=""></p>
+                    <img class="center" src="img/portfolio/RRT/RRT-pseudocode.png" alt="" style="width:50%"></p>
                 <p class="text-center">The implementation pseudocode</p>
-                <br>
-                <h4 style="font-size:22px">Simple RRT</h4> 
+                <p></p>
+                <h4 style="font-size:20px">Simple RRT</h4> 
                 <p>In this part I implemented a simple RRT algorithm in 2D with the domain of [0,100]×[0,100] and incremental distance of 1.
-                <br>The program coverages uniformly over the whole space.</p>
+                    <br>The program coverages uniformly over the whole space.</p>
                 <p>The following figure shows the algorithm implementation after 500 iterations:</p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/RRT/Task_1.png" alt=""></p>
                 <p class="text-center">Simple RRT</p>
-                <br>
+                <p></p>
                 <h4 style="font-size:22px">Planning a Path with Obstacles</h4> 
                 <p>In this part I implemented an RRT algorithm with obstacles.
-                <br>The path planning algorithm checks the path for collisions and avoids the round obstacles.</p>
+                    <br>The path planning algorithm checks the path for collisions and avoids the round obstacles.</p>
                 <p>The following figure shows the algorithm implementation after 500 iterations:</p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/RRT/Task_2.png" alt=""></p>
@@ -241,18 +254,17 @@
                         <br>The software recognize the pen by its color, and locate its coordinate using the 3D camera.</li>
                     <li>Controlling a PincherX robotic arm to accurately seize the pen under varying conditions, and throw it on the floor.</li>
                 </ol>
-                <br>
+                <p></p>
                 <h3>Overview</h3>
-                <h4 style="font-size:22px">Part 1 - Pen Recognition</h4> 
+                <h4 style="font-size:20px">Part 1 - Pen Recognition</h4> 
                 <p>In this part, I used computer vision packages (cv2) to analyze a video in order to find a purple pen.
-                    <br> Then, I used the Realsense 3D camera to locate the pen's coordinates.
-                </p>
+                    <br> Then, I used the Realsense 3D camera to locate the pen's coordinates.</p>
                 <p>The following video is a demostration of the pen recognition, where the left image is the color frame and the right image is the equivalent depth frame, as captured from the Realsense camera:</p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/pen_recognition/pen-recognition.gif" class="img-responsive" alt="Responsive image"></p>
                 <p class="text-center">Pen recognition</p>
                 <p></p>
-                <h4 style="font-size:22px">Part 2 - Pen Stealing</h4> 
+                <h4 style="font-size:20px">Part 2 - Pen Stealing</h4> 
                 <p>In this part, I used the interbotix motion and control packages to move the arm to a specified coordinates and steal the pen.</p>
                 <p>The arm motion can be split to 4 parts:</p>
                 <ol style="font-size:16px">
@@ -304,9 +316,9 @@
                 <p class="text-center">Solving 31x11 maze</p>
                 <h3>Goals</h3>       
                 <p>The goal of this project is to generate a random maze (sized according to users choise), and solve it for a simulated robotic agent.</p>
-                <br>
+                <p></p>
                 <h3>Overview</h3>
-                <h4 style="font-size:22px">Core Tasks</h4> 
+                <h4 style="font-size:20px">Core Tasks</h4> 
                 <ol style="font-size:16px">
                     <li>Maze generation</li>
                     <li>Maze state</li>
@@ -314,20 +326,21 @@
                     <li>Display the maze</li>
                     <li>Maze interface</li>
                 </ol>
-                <br>
-                <h4 style="font-size:22px">Maze generation</h4> 
+                <p></p>
+                <h4 style="font-size:20px">Maze generation</h4> 
                 <p>Generate a maze by implementing the randomized Prim's maze generation algorithm.
-                <br>The pseudocode for this algorithm:</p>
+                    <br>The pseudocode for this algorithm:</p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/maze/pseudocode.png" class="img-responsive" alt="Responsive image"></p>
-                <br>        
-                <h4 style="font-size:22px">Maze state</h4> 
+                    <p class="text-center">Maze generation pseudocode</p>
+                <p></p>
+                <h4 style="font-size:20px">Maze state</h4> 
                 <p>Track the state of the maze and determine if a grid square is wall/free, or is it the goal/start point
                     <br>Be able to find the 1-hop and 2-hop neighbors of a cell (for maze generation and exploration).</p>
-                <br>
-                <h4 style="font-size:22px">Solve the maze</h4> 
+                <p></p>
+                <h4 style="font-size:20px">Solve the maze</h4> 
                 <p>Implementat the "Wavefront Planner" maze solving algorithms.
-                <br>The pseudocode for Wavefront Planner algorithm:</p>
+                    <br>The pseudocode for Wavefront Planner algorithm:</p>
                 <ol style="font-size:16px">
                     <li>Breadth-first search approach</li>
                     <li>Start at the goal</li>
@@ -339,11 +352,11 @@
                     <li>Stop at the goal</li>
                 </ol>   
                 <p>The algorithm finds the shortest path to a given goal from every starting point, but it requires full knowledge of the maze.</p>
-                <br>
-                <h4 style="font-size:22px">Maze interface and display</h4> 
+                <p></p>
+                <h4 style="font-size:20px">Maze interface and display</h4> 
                 <p>Display the maze's walls, free cells, start position, and goal position.
                     <br>Display the robot position as it moves.</p>         
-                <br>       
+                <p></p>    
                 <p>In the following video, the software generates and solves a 20x13 maze:</p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/maze/maze2.gif" class="img-responsive" alt="Responsive image"></p>
