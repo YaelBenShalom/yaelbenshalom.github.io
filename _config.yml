@@ -1,6 +1,6 @@
 # Site settings
 title:              Yael Ben Shalom - Portfolio
-email:              yael.bshalom@gmail.com@gmail.com
+email:              yael.bshalom@gmail.com
 description:        "Yael Ben Shalom - Portfolio"
 url:                "http://localhost:4000"
 baseurl:            /YaelBenShalom.github.io
