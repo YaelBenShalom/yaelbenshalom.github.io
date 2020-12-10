@@ -59,17 +59,23 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <h3>Description</h3>       
-                <p>In this project, I wrote a software that plans a trajectory for the end-effector of the youBot mobile manipulator, performs odometry as the chassis moves, and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down in the V-REP simulation softwarw.
-                    <br>In This project, I implemented RRT exploration algorithm in a two-dimensional domain.</p>
+                <p>In this project, I wrote a software that plans a trajectory for the end-effector of the YouBot mobile manipulator, performs odometry as the chassis moves, and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down in the V-REP simulation softwarw.</p>
+                <p>The YouBot is an omnidirectional mobile robot with a 5-DOF robotic arm, simulated in CoppeliaSim simulation software.</p>
                 <p></p>
                 <h3>Overview</h3>       
                 <p>The projects covers the following topics:</p>
-                <ol style="font-size:16px">
-                    <li>Generate the kinematics simulator of the youBot - an omnidirectional mobile robot with a 5-DOF robotic arm.</li>
-                    <li>Plan the end-effector's trajectory between waypoints.</li>
-                    <li>Apply feedback control to drive the robot in the desired trajectory.</li>
-                    <li>Simulate the planned trajectory in CoppeliaSim.</li>
-                  </ol>  
+                <p></p>
+                <h4 style="font-size:20px">Generating the Kinematics Simulator of the YouBot</h4> 
+                <p>In this part of the projects, I wrote a code that compute the next configuration of the robot, given the current robot configuration (Chassis phi, Chassis x, Chassis y, J1, J2, J3, J4, J5, W1, W2, W3, W4, Gripper), joints and wheels speed and the time step.</p>
+                <p></p>
+                <h4 style="font-size:20px">Plannig the End-Effector's Trajectory</h4> 
+                <p>In this part of the projects, I wrote a code that generates a reference trajectory for the robot's end-effector, given the end-effector configuration in different states, relative to the world or the cube frame.</p>
+                <p></p>
+                <h4 style="font-size:20px">Applying Feedback Control to Drive the Robot in the Desired Trajectory</h4> 
+                <p>In this part of the projects, I wrote a code that returns the commanded end-effector twist and the error of each joint, given the current, desired and next end-effector configurations and the PI control gains.
+                    <br>The feedback control of the the mobile manipulator is given by kinematic task-space feedforward plus feedback control law:</p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/Manipulation/control_law.png" class="img-responsive" alt="Motion planning for different cube positions" style="width:70%"></p>
                 <p></p>
                 <h3>Results</h3>
                 <h4 style="font-size:20px">Motion Planning with Different Initial and Final Cube Position</h4> 
