@@ -15,16 +15,16 @@
                 <p></p>
                 <h4>This is an ongoing project. Here is a little teaser:</h4> 
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Baxter/Baxter.gif" class="img-responsive" alt="The Baxter in action" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/Baxter/Baxter.gif" alt="The Baxter in action" style="width:80%"></p>
                 <p class="text-center">The Baxter in action</p>    
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Baxter/Baxter_sorting.gif" class="img-responsive" alt="Sorting bottles and cans"></p>
+                    <img class="center" src="img/portfolio/Baxter/Baxter_sorting.gif" alt="Sorting bottles and cans"></p>
                 <p class="text-center">Sorting bottles and cans</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Baxter/realsense.png" class="img-responsive" alt="Recognizing and classifying bottles and cans" style="width:80%">
+                    <img class="center" src="img/portfolio/Baxter/realsense.png" alt="Recognizing and classifying bottles and cans" style="width:80%">
                 <p class="text-center">Recognizing and classifying bottles and cans</p>  
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Baxter/CV.gif" class="img-responsive" alt="Recognizing and classifying bottles and cans" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/Baxter/CV.gif" alt="Recognizing and classifying bottles and cans" style="width:80%"></p>
                 <p class="text-center">Recognizing and classifying bottles and cans</p>
 
             </div>
@@ -59,45 +59,45 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <h3>Description</h3>       
-                <p>In this project, I wrote a software that plans a trajectory for the end-effector of the YouBot mobile manipulator, performs odometry as the chassis moves, and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down in the V-REP simulation softwarw.</p>
+                <p>In this project, I wrote a software that plans a trajectory for the end-effector of the YouBot mobile manipulator, performs an odometry as the chassis moves, and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down in the V-REP simulation software.</p>
                 <p>The YouBot is an omnidirectional mobile robot with a 5-DOF robotic arm, simulated in CoppeliaSim simulation software.</p>
                 <p></p>
                 <h3>Overview</h3>       
-                <p>The projects covers the following topics:</p>
+                <p>The project covers the following topics:</p>
                 <p></p>
                 <h4 style="font-size:20px">Generating the Kinematics Simulator of the YouBot</h4> 
-                <p>In this part of the projects, I wrote a code that compute the next configuration of the robot, given the current robot configuration (Chassis phi, Chassis x, Chassis y, J1, J2, J3, J4, J5, W1, W2, W3, W4, Gripper), joints and wheels speed and the time step.</p>
+                <p>In this part of the project, I wrote a code that compute the next configuration of the robot, given the current robot configuration (Chassis phi, Chassis x, Chassis y, J1, J2, J3, J4, J5, W1, W2, W3, W4, Gripper), joints and wheels speed and the time step.</p>
                 <p></p>
-                <h4 style="font-size:20px">Plannig the End-Effector's Trajectory</h4> 
-                <p>In this part of the projects, I wrote a code that generates a reference trajectory for the robot's end-effector, given the end-effector configuration in different states, relative to the world or the cube frame.</p>
+                <h4 style="font-size:20px">Planning the End-Effector's Trajectory</h4>
+                <p>In this part of the project, I wrote a code that generates a reference trajectory for the robot's end-effector, given the end-effector configuration in different states, relative to the world or the cube frame.</p>
                 <p></p>
                 <h4 style="font-size:20px">Applying Feedback Control to Drive the Robot in the Desired Trajectory</h4> 
-                <p>In this part of the projects, I wrote a code that returns the commanded end-effector twist and the error of each joint, given the current, desired and next end-effector configurations and the PI control gains.
+                <p>In this part of the project, I wrote a code that returns the commanded end-effector twist and the error of each joint, given the current, desired and next end-effector configurations and the PI control gains.
                     <br>The feedback control of the the mobile manipulator is given by kinematic task-space feedforward plus feedback control law:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Manipulation/control_law.png" class="img-responsive" alt="Motion planning for different cube positions" style="width:70%"></p>
+                    <img class="center" src="img/portfolio/Manipulation/control_law.png" alt="Motion planning for different cube positions" style="width:70%"></p>
                 <p></p>
                 <h3>Results</h3>
                 <h4 style="font-size:20px">Motion Planning with Different Initial and Final Cube Position</h4> 
                 <p>In this part, I simulated the the controlled motion with different initial and final cube position, and different initial robot's configuration.</p>
                 <p>Here are two motion planning and control simulations for different cube positions:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Manipulation/best_fast.gif" class="img-responsive" alt="Motion planning for different cube positions" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/Manipulation/best_fast.gif" alt="Motion planning for different cube positions" style="width:80%"></p>
                 <p class="text-center">Initial position (1, 0, 0), Final position (0, -1, pi/2)</p>
                 <p></p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Manipulation/newTask_fast.gif" class="img-responsive" alt="Motion planning for different cube positions" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/Manipulation/newTask_fast.gif" alt="Motion planning for different cube positions" style="width:80%"></p>
                 <p class="text-center">Initial position (1, 1, 0), Final position (1, -1, pi/2)</p>
                 <p></p>
                 <h4 style="font-size:20px">Motion Planning with Different Control Gains</h4> 
                 <p>In this part, I plotted the end-effector's twist error as a function of time, to explore the error's behavior when using different control gains.</p>
                 <p>Here are two motion planning and control simulations for different control gains:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Manipulation/Xerr,kp=20,ki=5.png" class="img-responsive" alt="Motion planning for different cube positions" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/Manipulation/Xerr,kp=20,ki=5.png" alt="Motion planning for different cube positions" style="width:80%"></p>
                 <p class="text-center">kp=20, ki=5 - Controlled motion</p>
                 <p></p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/Manipulation/Xerr,kp=2,ki=40.png" class="img-responsive" alt="Motion planning for different cube positions" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/Manipulation/Xerr,kp=2,ki=40.png" alt="Motion planning for different cube positions" style="width:80%"></p>
                 <p class="text-center">kp=2, ki=40 - Overshoot motion</p>
                 <p></p>
             </div>
@@ -136,11 +136,11 @@
                     Using Arduino, motors, encoders and distance sensors.</p>
                 <p></p>
                 <h3>Goal</h3>       
-                <p>The main goal was to successfully pass a series of tasks in an obsticle course, as fast as possible.</p>
-                <h4 style="font-size:20px">The Tasks:</h3>  
+                <p>The main goal was to successfully pass a series of tasks in an obstacle course, as fast as possible.</p>
+                <h4 style="font-size:20px">The Tasks:</h4>  
                 <p>  
                   <ol style="font-size:16px">
-                    <li>Navigating through a maze (Maze navigation and explotarion)</li>
+                    <li>Navigating through a maze (Maze navigation and exploration)</li>
                     <li>Driving through changing-slope path, keeping constant roll</li>
                     <li>Following curved wall, keeping constant distance from it</li>
                     <li>Driving on a changing-gradient slope, keeping constant speed</li>
@@ -149,8 +149,8 @@
                 </p>
                 <p></p>
                 <h3>System Description</h3>
-                <p>I used several components to control the robot motion:
-                  <ul style="font-size:16px">  
+                <p>I used several components to control the robot motion:</p>
+                  <ul style="font-size:16px">
                     <li>Arduino</li>
                     <dl>
                         <li>Motors & encoders:</li>
@@ -160,11 +160,10 @@
                         <li>Sensors</li>
                         <dd>- IR sensor - One on each side of the vehicle to measure side distance</dd>
                         <dd>- TOF (Time of Flight) sensor - Assembled on the servo motor to scan the surrounding space</dd>
-                        <dd>- US (ultrasonik) sensor - Located on the top of the vehicle to measure distance from objects above the vehicle</dd>
+                        <dd>- US (ultrasonic) sensor - Located on the top of the vehicle to measure distance from objects above the vehicle</dd>
                         <dd>- IMU 9250 (9 DOF) - Measures orientation (Gyroscope) and acceleration (Accelerometer). Compass is not in use</dd>
                     <li>Led matrix - Indicates mission number and mission success/fail</li>
-                  </ul> 
-                </p>
+                  </ul>
                 <br>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/mechatronics/system_explanation.png" alt="The system" style="width:75%"></p>
@@ -299,9 +298,9 @@
                 <h4 style="font-size:20px">Part 1 - Pen Recognition</h4> 
                 <p>In this part, I used computer vision packages (cv2) to analyze a video in order to find a purple pen.
                     <br> Then, I used the Realsense 3D camera to locate the pen's coordinates.</p>
-                <p>The following video is a demostration of the pen recognition, where the left image is the color frame and the right image is the equivalent depth frame, as captured from the Realsense camera:</p>
+                <p>The following video is a demonstration of the pen recognition, where the left image is the color frame and the right image is the equivalent depth frame, as captured from the Realsense camera:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/pen_recognition/pen-recognition.gif" class="img-responsive" alt="Pen recognition" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/pen_recognition/pen-recognition.gif" alt="Pen recognition" style="width:80%"></p>
                 <p class="text-center">Pen recognition</p>
                 <p></p>
                 <h4 style="font-size:20px">Part 2 - Pen Stealing</h4> 
@@ -313,9 +312,9 @@
                     <li>Move the arm to a location above the floor</li>
                     <li>Open the gripper and release the pen on the floor</li>
                 </ol>
-                <p>The following video is a demostration of the pen seizing:</p>
+                <p>The following video is a demonstration of the pen seizing:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/pen_recognition/pen-stealing.gif" class="img-responsive" alt="Pen stealing" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/pen_recognition/pen-stealing.gif" alt="Pen stealing" style="width:80%"></p>
                 <p class="text-center">Pen stealing</p>
             </div>
 
@@ -352,10 +351,10 @@
                 <p>In this project, me and my team created a maze exploration software.
                     <br>In the maze, a simulated robotic agent takes discrete steps on a grid in the maze, while trying to navigate to a goal.</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/maze/maze.gif" class="img-responsive" alt="Solving 31x11 maze" style="width:100%"></p>
+                    <img class="center" src="img/portfolio/maze/maze.gif" alt="Solving 31x11 maze" style="width:100%"></p>
                 <p class="text-center">Solving 31x11 maze</p>
                 <h3>Goals</h3>       
-                <p>The goal of this project is to generate a random maze (sized according to users choise), and solve it for a simulated robotic agent.</p>
+                <p>The goal of this project is to generate a random maze (sized according to user's choice), and solve it for a simulated robotic agent.</p>
                 <p></p>
                 <h3>Overview</h3>
                 <h4 style="font-size:20px">Core Tasks</h4> 
@@ -371,7 +370,7 @@
                 <p>Generate a maze by implementing the randomized Prim's maze generation algorithm.
                     <br>The pseudocode for this algorithm:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/maze/pseudocode.png" class="img-responsive" alt="Maze generation pseudocode" style="width:70%"></p>
+                    <img class="center" src="img/portfolio/maze/pseudocode.png" alt="Maze generation pseudocode" style="width:70%"></p>
                     <p class="text-center">Maze generation pseudocode</p>
                 <p></p>
                 <h4 style="font-size:20px">Maze state</h4> 
@@ -379,7 +378,7 @@
                     <br>Be able to find the 1-hop and 2-hop neighbors of a cell (for maze generation and exploration).</p>
                 <p></p>
                 <h4 style="font-size:20px">Solve the maze</h4> 
-                <p>Implementat the "Wavefront Planner" maze solving algorithms.
+                <p>Implement the "Wavefront Planner" maze solving algorithms.
                     <br>The pseudocode for Wavefront Planner algorithm:</p>
                 <ol style="font-size:16px">
                     <li>Breadth-first search approach</li>
@@ -399,7 +398,7 @@
                 <p></p>    
                 <p>In the following video, the software generates and solves a 20x13 maze:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/maze/maze2.gif" class="img-responsive" alt="Solving 20x13 maze" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/maze/maze2.gif" alt="Solving 20x13 maze" style="width:80%"></p>
                 <p class="text-center">Solving 20x13 maze</p>
             </div>
 
@@ -434,7 +433,7 @@
             <div class="modal-body">
                 <h3>Description</h3>       
                 <p>In this project, I simulated and animated the dynamics of a planar jack-in-a-box system. 
-                    <br>The simulation forecast the dynamic of the multi-body system in time, while the bodies experiance multiple impacts between each other (impacts between the jack's masses and the box’s walls).</p>
+                    <br>The simulation forecast the dynamic of the multi-body system in time, while the bodies experience multiple impacts between each other (impacts between the jack's masses and the box’s walls).</p>
                 <p></p>
                 <h3>Overview</h3>       
                 <p>The dynamic system includes 2 rigid bodies - A squared box and a 4-mass jack, as shown below.
@@ -442,14 +441,14 @@
                 <p>In order to keep track of the position of the bodies through the simulation, I defined a series of sub-frame for every mass in the system that portray the location of the mass relative to the system's main frame.
                     <br>The following drawing shown the different frames in the system:
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/dynamic_simulation/final-projects - frames.jpg" class="img-responsive" alt="Dynamic simulation" style="width:80%"></p>
+                    <img class="center" src="img/portfolio/dynamic_simulation/final-projects - frames.jpg" alt="Dynamic simulation" style="width:80%"></p>
                 <p class="text-center">Jack-in-a-box - System model</p>
                 <p>To simulate the system, I used the Euler-Lagrange equations and the impact laws.
                     <br>There are total of 16 possible impact scenarios (anyone of the jack's masses can impact anyone of the box's walls), and the model can simulates every impact possible.
                     <br>All of the impacts in this system are ideal elastic impacts.</p>
                 <p>You can see the final result in the following short video:</p>
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/dynamic_simulation/ME314-final-project.gif" class="img-responsive" alt="Dynamic simulation" style="width:60%"></p>
+                    <img class="center" src="img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
                 <p class="text-center">Jack-in-a-box - System animation</p>
             </div>
 
