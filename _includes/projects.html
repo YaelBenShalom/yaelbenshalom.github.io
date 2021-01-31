@@ -19,13 +19,12 @@ layout: front
                 <h3>Description</h3>       
                 <p>In this project, we programmed a Rethink Baxter robot to sort bottles and cans located in front of it, and drop them into separate recycle bins.
                     We used computer vision to detect and locate a number of randomly placed bottles and cans, and used MoveIt to control the robot's kinematics.</p>
+                <h3>Goal</h3>       
+                <p>The main goal was to successfully detect and locate a variety of recycle objects, and to separate them into different recycle bins.</p>
                 <p></p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/Baxter/Baxter.gif" alt="The Baxter in action" style="width:80%"></p>
                 <p class="text-center" style="font-size:14px">The Baxter in action</p>
-                <p></p>
-                <h3>Goal</h3>       
-                <p>The main goal was to successfully detect and locate a variety of recycle objects, and to separate them into different recycle bins.</p>
                 <p></p>
                 <h3>System Overview</h3>
                 <p>In order to recognize and separate the objects into two different recycle bins, our program is going through a number of steps:</p>
@@ -166,7 +165,6 @@ layout: front
                 <h3>Description</h3>       
                 <p>In this project, I build a wheeled robot and programmed it to navigate autonomously through a series of tasks,
                     Using Arduino, motors, encoders and distance sensors.</p>
-                <p></p>
                 <h3>Goal</h3>       
                 <p>The main goal was to successfully pass a series of tasks in an obstacle course, as fast as possible.</p>
                 <h4 style="font-size:20px">The Tasks:</h4>  
@@ -260,7 +258,6 @@ layout: front
                 <h3>Description</h3>       
                 <p>A Rapidly-Exploring Random Tree (RRT) is a fundamental path planning algorithm in robotics.
                     <br>In This project, I implemented RRT exploration algorithm in a two-dimensional domain.</p>
-                <p></p>
                 <h3>Goal</h3>       
                 <p>Use the RRT algorithm to find the goal coordinate in a two-dimensional domain, while avoiding obstacles.</p>
                 <p></p>
@@ -383,12 +380,12 @@ layout: front
                 <h3>Description</h3>       
                 <p>In this project, me and my team created a maze exploration software.
                     <br>In the maze, a simulated robotic agent takes discrete steps on a grid in the maze, while trying to navigate to a goal.</p>
+                <h3>Goal</h3>       
+                <p>The goal of this project is to generate a random maze (sized according to user's choice), and solve it for a simulated robotic agent.</p>
+                <p></p>
                 <p class="text-center">
                     <img class="center" src="img/portfolio/maze/maze.gif" alt="Solving 31x11 maze" style="width:100%"></p>
                 <p class="text-center" style="font-size:14px">Solving 31x11 maze</p>
-                <p></p>
-                <h3>Goals</h3>       
-                <p>The goal of this project is to generate a random maze (sized according to user's choice), and solve it for a simulated robotic agent.</p>
                 <p></p>
                 <h3>Overview</h3>
                 <h4 style="font-size:20px">Core Tasks</h4> 
@@ -503,7 +500,7 @@ layout: front
 
 
 <!-- Modal 8 -->
-<div class="portfolio-modal modal fade modal-xl" id="project7" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="portfolio-modal modal fade modal-xl" id="project8" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
 
@@ -515,27 +512,40 @@ layout: front
             </div>
 
             <!-- Modal body -->
-            <!-- <div class="modal-body">
+            <div class="modal-body">
                 <h3>Description</h3>       
-                <p>In this project, I simulated and animated the dynamics of a planar jack-in-a-box system. 
-                    <br>The simulation forecast the dynamic of the multi-body system in time, while the bodies experience multiple impacts between each other (impacts between the jack's masses and the box’s walls).</p>
+                <p>In this project, I programmed Turtlebot3 robot to autonomously explore and map a simulated scene, using SLAM toolbox and autonomous exploration algorithm.</p>
+                <h3>Goal</h3>       
+                <p>The goal of the project is to use the turtlebot to map an environment and navigate within the map using SLAM toolbox.</p>
+                <p></p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/Turtlebot_SLAM/explore_crop.gif" alt="The turtlebot exploring a scene in Rviz" style="width:80%"></p>
+                <p class="text-center" style="font-size:14px">The turtlebot exploring a scene in Rviz</p>
                 <p></p>
                 <h3>Overview</h3>       
-                <p>The dynamic system includes 2 rigid bodies - A squared box and a 4-mass jack, as shown below.
-                    <br>On the two bodies acts external forces and gravity, that causes them to move and impact each other. The jack falls down with gravity, while on the box acts an equal and opposite force to gravity that keeps it in it's place. On the box also acts a sinusoidal torque that makes it rotate back and forth in a constant frequency.</p>
-                <p>In order to keep track of the position of the bodies through the simulation, I defined a series of sub-frame for every mass in the system that portray the location of the mass relative to the system's main frame.
-                    <br>The following drawing shown the different frames in the system:
+                <p>This projects contained 4 parts:</p>
+                <ol style="font-size:16px">
+                    <li>Manually mapping the Gazebo workspace using `turtlebot3_teleop`.</li>
+                    <li>Localizing and moving the turtlebot using `AMCL` ROS navigation stack with the map created in the previous step.</li>
+                    <li>Mapping the workspace while navigating (manual navigation).</li>
+                    <li>Autonomously mapping the environment.</li>
+                </ol> 
+                <p>In the following video, the turtlebot moves in the previous created map:
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/dynamic_simulation/final-projects - frames.jpg" alt="Dynamic simulation" style="width:80%"></p>
-                <p class="text-center" style="font-size:14px">Jack-in-a-box - System model</p>
-                <p>To simulate the system, I used the Euler-Lagrange equations and the impact laws.
-                    <br>There are total of 16 possible impact scenarios (anyone of the jack's masses can impact anyone of the box's walls), and the model can simulates every impact possible.
-                    <br>All of the impacts in this system are ideal elastic impacts.</p>
-                <p>You can see the final result in the following short video:</p>
+                    <img class="center" src="img/portfolio/Turtlebot_SLAM/nav_stack.gif" alt="Moving the turtlebot using previous created map" style="width:80%"></p>
+                <p class="text-center" style="font-size:14px">Moving the turtlebot using previous created map</p>
+                <p>In the following video, the turtlebot maps the workspace while navigating between manually insert goal-points:
                 <p class="text-center">
-                    <img class="center" src="img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
-                <p class="text-center" style="font-size:14px">Jack-in-a-box - System animation</p>
-            </div> -->
+                    <img class="center" src="img/portfolio/Turtlebot_SLAM/slam_stack.gif" alt="Mapping the workspace while navigating" style="width:80%"></p>
+                <p class="text-center" style="font-size:14px">Mapping the workspace while navigating</p>
+                <p>In the following video, the turtlebot maps the workspace autonomously:
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/Turtlebot_SLAM/explore.gif" alt="Autonomously mapping the environment" style="width:80%"></p>
+                <p class="text-center" style="font-size:14px">Autonomously mapping the environment</p>
+                <p class="text-center">
+                    <img class="center" src="img/portfolio/Turtlebot_SLAM/map.pgm" alt="The map generated" style="width:80%"></p>
+                <p class="text-center" style="font-size:14px">The map generated</p>
+            </div>
 
             <!-- Modal footer -->
             <div class="modal-footer">
