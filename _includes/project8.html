@@ -1,0 +1,58 @@
+<aside class="bg-primary"></aside>
+
+<section class="no-padding" id="project8">
+    <div class="container-fluid center">
+        <div class="row no-gutter center">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h3 class="text-center modal-title">Jack-in-a-Box Dynamic Simulation</h3>
+                    <h4 class="text-center">Python  |  Dynamic Simulation</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <h3>Description</h3>       
+                    <p>In this project, I simulated and animated the dynamics of a planar jack-in-a-box system. 
+                        <br>The simulation forecast the dynamic of the multi-body system in time, while the bodies experience multiple impacts between each other
+                        (impacts between the jack's masses and the box’s walls).</p>
+                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Simulating-Jack-in-a-Box" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p></p>
+                    <h3>Overview</h3>       
+                    <p>The dynamic system includes 2 rigid bodies - A squared box and a 4-mass jack, as shown below.
+                        <br>On the two bodies acts external forces and gravity, that causes them to move and impact each other. The jack falls down with gravity, while on the box acts an equal
+                        and opposite force to gravity that keeps it in it's place. On the box also acts a sinusoidal torque that makes it rotate back and forth in a constant frequency.</p>
+                    <p>In order to keep track of the position of the bodies through the simulation, I defined a series of sub-frame for every mass in the system that portray the location
+                        of the mass relative to the system's main frame.
+                        <br>The following drawing shown the different frames in the system:
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/dynamic_simulation/final-projects - frames.jpg" alt="Dynamic simulation" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Jack-in-a-box - System model</p>
+                    <br>
+                    <p>To simulate the system, I used the Euler-Lagrange equations and the impact laws.
+                        <br>There are total of 16 possible impact scenarios (anyone of the jack's masses can impact anyone of the box's walls), and the model can simulates every impact possible.
+                        <br>All of the impacts in this system are ideal elastic impacts.</p>
+                    <h3>Results</h3>
+                    <p>You can see the simulation results in the following short video:</p>
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
+                    <p class="text-center" style="font-size:14px">Jack-in-a-box - System animation</p>
+                </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <p></p>
+                        <form action="https://github.com/YaelBenShalom/Simulating-Jack-in-a-Box" method="get" target="_blank">
+                            <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
+                        </form>
+                        <p></p>
+                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -76,74 +76,43 @@
 
   <aside class="bg-primary"></aside>
 
-<section class="no-padding" id="project1">
+<section class="no-padding" id="project3">
     <div class="container-fluid center">
         <div class="row no-gutter center">
             <div class="col-lg-8 col-lg-offset-2">
 
                 <!-- Header -->
                 <div class="modal-header">
-                    <h3 class="text-center modal-title">Recycler Baxter</h3>
-                    <h4 class="text-center">ROS  |  Python  |  Computer Vision  |  Motion Planning  |  Inverse Kinematics  |  OpenCV  |  MoveIt</h4>
+                    <h3 class="text-center modal-title">Traffic-Sign Recognition and Classification - Ongoing Project</h3>
+                    <h4 class="text-center">Python  |  Pytorch  |  Artificial Intelligence  |  Machine Learning  |  Neural Network</h4>
                 </div>
                 
                 <!-- body -->
                 <div class="modal-body">
-                    <h3>Description</h3>       
-                    <p>In this project, my team and I built a ROS (Robot Operating System) package that allowed a Rethink Baxter robot to sort bottles and cans located in front of it,
-                        and drop them into separate recycle bins.
-                        We used computer vision to detect and locate a number of randomly placed objects, and used MoveIt methods to control the robot's kinematics.
-                        <br>My rule was to program the object recognition and classification software, and to build the segmentation and calibration library, that was later used by the robot
-                        to localize the objects.</p>
-                    <p>Team members: Chris Aretakis, Jake Ketchum, Kailey Smith, Mingqing Yuan, and me.</p>
-                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Recycling-Baxter" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                    <p></p>
+                    <p>This is an ongoing project.
+                        Here is a little teaser of my traffic-sign recognition and classification project:</p>
                     <p class="text-center">
-                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Baxter/Baxter.gif" alt="The Baxter in action" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">The Baxter in action</p>
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Traffic_signs/Random_Training_Images.png" alt="Random training images" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Random training images</p>
                     <br>
-                    <h3>System Overview</h3>
-                    <p>In order to recognize and separate the objects into two different recycle bins, our program is going through a number of steps:</p>
-                    <ol style="font-size:16px">
-                        <li>Object detection</li>
-                        <li>Object segmentation and calibration</li>
-                        <li>Robot operation</li>
-                    </ol>
-                    <br>
-                    <h4 style="font-size:20px">Step I: Objects Detection</h4> 
-                    <p>In this step, we used a Realsense D435i camera to get a real-time image of the randomly placed objects.</p>
-                    <p>We used OpenCV and image processing libraries to detect and differentiate the objects into 2 groups - cans and bottles.</p>
-                    <p>The following video demonstrates the object differentiation software for several types of cans and bottles:</p>
                     <p class="text-center">
-                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Baxter/CV.gif" alt="Recognizing and classifying bottles and cans" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">Recognizing and classifying bottles and cans</p>
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Traffic_signs/Random_Training_Images_Different_Class.png" alt="Random training images from different classes" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Random training images from different classes</p>
                     <br>
-                    <h4 style="font-size:20px">Step II: Objects Segmentation and Calibration</h4> 
-                    <p>In this step, we used the OpenCV library to find the objects segmentation (pixel location in the image).</p>
-                    <p>We also located 2 known calibration points (marked in green in the following image) to help us convert objects coordinates from pixels to meters.</p>
-                    <p>The following image demonstrates the differentiation between bottles, cans, and calibrations points:</p>
                     <p class="text-center">
-                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Baxter/realsense.png" alt="Recognizing and classifying bottles and cans" style="width:60%">
-                    <p class="text-center" style="font-size:14px">Recognizing and classifying bottles and cans</p> 
-                    <br>
-                    <h4 style="font-size:20px">Step III: Robot Operation</h4> 
-                    <p>In this step, we used MoveIt! library for the robot's motion planning and manipulation.</p>
-                    <p>The robot moves to the pre-detected objects' locations, grasps one object at a time, and throws it into the appropriate recycle bin.
-                        The robot repeats those actions until it finishes picking up all the objects on the table.</p>
-                    <p>The following video demonstrates the robot motion:</p>
-                    <p class="text-center">
-                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Baxter/Baxter_sorting.gif" alt="Sorting bottles and cans"></p>
-                    <p class="text-center" style="font-size:14px">Sorting bottles and cans</p>               
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Traffic_signs/Class_Distribution.png" alt="Class distribution in the training set" style="width:60%"></p>
+                    <p class="text-center" style="font-size:14px">Class distribution in the training set</p>
+    
                 </div>
 
                 <!-- footer -->
                 <div class="modal-footer">
                     <div class="text-center">
                         <p></p>
-                        <form action="https://github.com/YaelBenShalom/Recycling-Baxter" method="get" target="_blank">
+                        <!-- <form action="https://github.com/YaelBenShalom/Traffic-Sign-Recognition-and-Classification" method="get" target="_blank">
                             <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
                         </form>
-                        <p></p>
+                        <p></p> -->
                         <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
                         <p></p>
                     </div>

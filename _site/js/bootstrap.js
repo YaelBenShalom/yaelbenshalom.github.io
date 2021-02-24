@@ -240,7 +240,6 @@ if (typeof jQuery === 'undefined') {
     if (changed) this.$element.toggleClass('active')
   }
 
-
   // BUTTON PLUGIN DEFINITION
   // ========================
 
