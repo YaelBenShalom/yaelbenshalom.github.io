@@ -1,0 +1,68 @@
+<aside class="bg-primary"></aside>
+
+<section class="no-padding" id="project7">
+    <div class="container-fluid center">
+        <div class="row no-gutter center">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h3 class="text-center modal-title">Turtlebot3 SLAM</h3>
+                    <h4 class="text-center">ROS  |  Python  |  Turtlebot3  |  SLAM  |   Autonompous Exploration  |  AMCL</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <h3>Description</h3>       
+                    <p>In this project, I programmed Turtlebot3 robot to autonomously explore and map a simulated environment, using SLAM toolbox and autonomous exploration algorithm.</p>
+                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Turtlebot3-Navigation-with-SLAM" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p></p>
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Turtlebot_SLAM/explore_crop.gif" alt="The turtlebot exploring a scene in Rviz" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">The turtlebot exploring a scene in Rviz (speed X5)</p>
+                    <br>
+                    <h3>Overview</h3>       
+                    <p>This projects contained 4 parts:</p>
+                    <ol style="font-size:16px">
+                        <li>Manually mapping the Gazebo workspace using `turtlebot3_teleop`.</li>
+                        <li>Localizing and moving the turtlebot using `AMCL` ROS navigation stack with the map created in the previous step.</li>
+                        <li>Mapping the workspace while navigating (manual navigation).</li>
+                        <li>Autonomously mapping the environment.</li>
+                    </ol> 
+                    <p>In the following video, I manually moved the turtlebot in a previous created map:
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Turtlebot_SLAM/nav_stack.gif" alt="Moving the turtlebot using previous created map" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Moving the turtlebot using previous created map (speed X2)</p>
+                    <br>
+                    <p>In the following video, the turtlebot maps the workspace while navigating between manually insert goal-points:
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Turtlebot_SLAM/slam_stack.gif" alt="Mapping the workspace while navigating" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Mapping the workspace while navigating (speed X2)</p>
+                    <br>
+                    <p>In the forth part, I used goal-points on the edge of the explored map to make the turtlebot map the workspace. For the exploration, I used Frontier Exploration algorithm.</p>
+                    <p>In the following video, the turtlebot maps the workspace autonomously. The generated map presented below it:
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Turtlebot_SLAM/explore.gif" alt="Autonomously mapping the environment" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Autonomously mapping the environment (speed X10)</p>
+                    <br>
+                    <p class="text-center">
+                        <img class="center" src="/YaelBenShalom.github.io/img/portfolio/Turtlebot_SLAM/map.jpg" alt="The map generated" style="width:50%"></p>
+                    <p class="text-center" style="font-size:14px">The map generated</p>
+                </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <p></p>
+                        <form action="https://github.com/YaelBenShalom/Turtlebot3-Navigation-with-SLAM" method="get" target="_blank">
+                            <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
+                        </form>
+                        <p></p>
+                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
