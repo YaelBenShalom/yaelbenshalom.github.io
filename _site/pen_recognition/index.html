@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Yael Ben Shalom</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png" />
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="../css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/main.css" type="text/css">
+
+    <meta name="viewport" content="width=device-width">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body id="page-top">
+  <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="../#page-top">Yael Ben Shalom</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="../#portfolio_introduction">Portfolio</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../#skills">Skills</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../#about">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="../#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+  <aside class="bg-primary"></aside>
+
+<section class="no-padding" id="pen_recognition">
+    <div class="container-fluid center">
+        <div class="row no-gutter center">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h3 class="text-center modal-title">Robotic Arm Control Using Computer Vision Perception</h3>
+                    <h4 class="text-center">ROS  |  Python  |  Robotic Manipulation  |  Motion Planning  |   Computer Vision  |  Range Imaging</h4>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <h3>Description</h3>       
+                    <p>In This project, I programmed a robotic arm to "steal" a pen from my hand and throw it on the floor.
+                        <br>I used computer vision to detect and locate the pen in the space, and motion planning to control a robotic arm.</p>
+                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Who-Stole-My-Pen-Challenge" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p></p>
+                    <p class="text-center">
+                        <img class="center" src="../img/portfolio/pen_recognition/pen-recognition-and-stealing.gif" alt="Pen stealing" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Pen recognition and grasping</p>
+                    <br>
+                    <h3>Overview</h3>
+                    <p>This project contains 2 parts:</p>
+                    <ol style="font-size:16px">
+                        <li>A computer vision algorithm for recognizing the 3D location of a purple pen, using a D435i depth-camera.
+                            <br>The software recognize the pen by its color, and locate its coordinate using the 3D camera.</li>
+                        <li>Controlling a PincherX robotic arm to accurately seize the pen under varying conditions, and throw it on the floor.</li>
+                    </ol>
+                    <p></p>
+                    <h4 style="font-size:20px">Part I: Pen Recognition</h4> 
+                    <p>In this part, I used computer vision packages (cv2) to analyze a video in order to find a purple pen.
+                        <br> Then, I used the Realsense 3D camera to locate the pen's coordinates.</p>
+                    <p>The following video is a demonstration of the pen recognition, where the left image is the color frame and the right image is the equivalent depth frame,
+                        as captured from the Realsense camera:</p>
+                    <p class="text-center">
+                        <img class="center" src="../img/portfolio/pen_recognition/pen-recognition.gif" alt="Pen recognition" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Pen recognition</p>
+                    <br>
+                    <h4 style="font-size:20px">Part II: Pen Stealing</h4> 
+                    <p>In this part, I used the interbotix motion and control packages to move the arm to a specified coordinates and steal the pen.</p>
+                    <p>The arm motion can be split to 4 steps:</p>
+                    <ol style="font-size:16px">
+                        <li>Move the arm to the specified coordinates with an open gripper.
+                            The coordinates of the pen found using the pen recognition on part I.</li>
+                        <li>Close the gripper on the pen.</li>
+                        <li>Move the arm to a location above the floor.</li>
+                        <li>Open the gripper and release the pen on the floor.</li>
+                    </ol>
+                    <p>The following video is a demonstration of the pen seizing:</p>
+                    <p class="text-center">
+                        <img class="center" src="../img/portfolio/pen_recognition/pen-stealing.gif" alt="Pen stealing" style="width:80%"></p>
+                    <p class="text-center" style="font-size:14px">Pen grasping</p>
+                </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <p></p>
+                        <form action="https://github.com/YaelBenShalom/Who-Stole-My-Pen-Challenge" method="get" target="_blank">
+                            <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
+                        </form>
+                        <p></p>
+                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- jQuery -->
+<script src="../js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="../js/jquery.easing.min.js"></script>
+<script src="../js/jquery.fittext.js"></script>
+<script src="../js/wow.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../js/creative.js"></script>
+
+</body>
+
+</html>
