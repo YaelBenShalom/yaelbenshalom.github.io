@@ -35,24 +35,24 @@
                     </ol>
                     <br>
                     <h4 style="font-size:20px">Step I: Objects Detection</h4> 
-                    <p>In this step, we used a Realsense D435i camera to get a real-time image of the randomly placed objects.</p>
-                    <p>We used OpenCV and image processing libraries to detect and differentiate the objects into 2 groups - cans and bottles.</p>
+                    <p>In this step, we used a Realsense D435i camera to get a real-time image of the randomly placed objects.
+                        <br>We used OpenCV and image processing libraries to detect and differentiate the objects into 2 groups - cans and bottles.</p>
                     <p>The following video demonstrates the object differentiation software for several types of cans and bottles:</p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/Baxter/CV.gif" alt="Recognizing and classifying bottles and cans" style="width:80%"></p>
                     <p class="text-center" style="font-size:14px">Recognizing and classifying bottles and cans</p>
                     <br>
                     <h4 style="font-size:20px">Step II: Objects Segmentation and Calibration</h4> 
-                    <p>In this step, we used the OpenCV library to find the objects segmentation (pixel location in the image).</p>
-                    <p>We also located 2 known calibration points (marked in green in the following image) to help us convert objects coordinates from pixels to meters.</p>
+                    <p>In this step, we used the OpenCV library to find the objects segmentation (pixel location in the image).
+                        <br>We also located 2 known calibration points (marked in green in the following image) to help us convert objects coordinates from pixels to meters.</p>
                     <p>The following image demonstrates the differentiation between bottles, cans, and calibrations points:</p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/Baxter/realsense.png" alt="Recognizing and classifying bottles and cans" style="width:60%">
                     <p class="text-center" style="font-size:14px">Recognizing and classifying bottles and cans</p> 
                     <br>
                     <h4 style="font-size:20px">Step III: Robot Operation</h4> 
-                    <p>In this step, we used MoveIt! library for the robot's motion planning and manipulation.</p>
-                    <p>The robot moves to the pre-detected objects' locations, grasps one object at a time, and throws it into the appropriate recycle bin.
+                    <p>In this step, we used MoveIt! library for the robot's motion planning and manipulation.
+                        <br>The robot moves to the pre-detected objects' locations, grasps one object at a time, and throws it into the appropriate recycle bin.
                         The robot repeats those actions until it finishes picking up all the objects on the table.</p>
                     <p>The following video demonstrates the robot motion:</p>
                     <p class="text-center">
