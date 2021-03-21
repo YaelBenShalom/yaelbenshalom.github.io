@@ -109,19 +109,23 @@
                     <div class="row no-gutter">
                         <div class="col-lg-5 col-sm-8">
                             <a class="page-scroll" href="#Traffic-Signs">
-                                <img class="center" src="../img/portfolio/ML_object_detection/traffic-sign.gif" alt="Random training images" style="width:112%"></p></a>
+                                <img class="center" src="../img/portfolio/ML_object_detection/traffic-sign.gif" alt="Traffic-signs recognition and classification" style="width:115%"></p></a>
                             <p class="text-center" style="font-size:14px">Traffic-signs recognition and classification</p>
                         </div>
                         <div class="col-lg-5 col-sm-8 col-lg-offset-1">
                             <a class="page-scroll" href="#Trash">
-                                <img class="center" src="../img/portfolio/ML_object_detection/trash_recognition.gif" alt="Random training images" style="width:112%"></p></a>
+                                <img class="center" src="../img/portfolio/ML_object_detection/trash_recognition.gif" alt="Trash recognition and classification" style="width:115%"></p></a>
                             <p class="text-center" style="font-size:14px">Trash recognition and classification</p>
                         </div>
                     </div>
                     <section class="no-padding" id="Traffic-Signs">
                         <h3>Traffic-Signs Recognition and Classification</h3>       
-                        <p>In this part, I trained a neural network to detect and classify different traffic signs using PyTorch, YoloV5 and OpenCV.
+                        <p>In this part, I trained a neural network to detect and classify different traffic signs using PyTorch, YoloV3 and OpenCV.
                         <br>I based my program on the German Traffic Sign Detection Benchmark <a href="https://benchmark.ini.rub.de/gtsdb_news.html" target="_blank" rel="noopener"><u>(GTSBB)</u></a> dataset - a broad dataset containing 43 different classes and more than 50,000 images.</p>
+                        <p>The following video demonstrates the software detecting several types of traffic-signs:</p>
+                        <p class="text-center">
+                            <img class="center" src="../img/portfolio/ML_object_detection/traffic-sign.gif" alt="Traffic-signs recognition and classification" style="width:100%"></p>
+                        <p class="text-center" style="font-size:14px">Traffic-signs detection video</p>
                     </section>
                     <br><br>
 
@@ -132,7 +136,31 @@
                     <section class="no-padding" id="Trash">
                         <h3>Trash Detection, Classification and Segmentation</h3>       
                         <p>In this part, I trained a neural network to detect and classify different recycable objects using PyTorch, YoloV5 and OpenCV.
-                        <br>I based my program on the Trash Annotations in Context <a href="http://tacodataset.org/" target="_blank" rel="noopener"><u>(TACO)</u></a>  dataset - a constantly growing dataset containing ~60 different classes. In my project I trained my network to only detected 10 different types of objects.</p>
+                        <br>I based my program on the Trash Annotations in Context <a href="http://tacodataset.org/" target="_blank" rel="noopener"><u>(TACO)</u></a>  dataset - a constantly growing dataset containing ~60 different classes.</p>
+                        <p>The advantages of this detection method, are that it allowes fast detection of various objects, located in different orientations. This method also allows us to add additional classes to our classification or add new data (with re-training the model).</p>
+                        <div class="row no-gutter text-center">
+                            <div class="col-lg-4 col-sm-8">
+                                <p class="text-center">
+                                    <img class="center" src="../img/portfolio/ML_object_detection/diff_orientation.jpg" alt="Detecting objects with different orientations" style="width:100%"></p>
+                            </div>
+                            <div class="col-lg-4 col-sm-8">
+                                <p class="text-center">
+                                    <img class="center" src="../img/portfolio/ML_object_detection/diff_orientation2.jpg" alt="Detecting objects with different orientations" style="width:100%"></p>
+                            </div>
+                            <div class="col-lg-4 col-sm-8">
+                                <p class="text-center">
+                                    <img class="center" src="../img/portfolio/ML_object_detection/diff_orientation4.jpg" alt="Detecting objects with different orientations" style="width:100%"></p>
+                            </div>
+                            <p class="text-center" style="font-size:14px">Detecting objects with different orientations</p>
+                            <br>
+                            <p class="text-center">
+                                <img class="center" src="../img/portfolio/ML_object_detection/trash_recognition.gif" alt="Real-time detection" style="width:100%"></p>
+                            <p class="text-center" style="font-size:14px">Real-time detection</p>
+                        </div>
+                        <br>
+                        <h4>Implement Trash Detection in Recycler Baxter project</h4>       
+                        <p>In addition, as a further development of the <a href="recycler_baxter/index.html" target="_blank" rel="noopener"><u><b>Recycler Baxter</b></u></a> project, I used this machine learning implementation to detect and locate the recycable objects sorted by the baxter robot</p>
+                        <p>For this purpose, I trained my network to only detected the 10 different types of objects that the Baxter robot can grab (cans, bottles, paper/plastic cups, crisps bag etc).</p>
                     </section>
 
 
