@@ -95,19 +95,21 @@
                     <div class="modal-body">
                     <h3>Description</h3>       
                     <p>In this project, I build and trained a neural network to detect and classify different objects.</p>
-                    <p>This project contained 2 parts:</p>
+                    <p>This project contained 3 parts:</p>
                     <ol style="font-size:16px">
                         <li>Traffic sign detection and classification</li>
                         <li>Trash detection, classification and segmentation</li>
+                        <li>Implementation of a real-time trash recognizing and sorting robot</li>
                     </ol>
                     <br>
                     <p>In order to detect and classify the objects, I used Pytorch to train the network, YOLOv5 (You Only Look Once) to detect the objects,
                         and computer vision library (OpenCV) to visualize the detection results.
                     <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Objects-Recognition-and-Classification" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page or click on the following videos to get to the relevant part.</p>
                     <p></p>
+                    <!-- <img class="center" src="../img/portfolio/ML_object_detection/detecting_baxter3.gif" alt="Traffic-signs recognition and classification" style="width:115%"></p></a> -->
 
                     <div class="row no-gutter">
-                        <div class="col-lg-5 col-sm-8">
+                        <!-- <div class="col-lg-5 col-sm-8">
                             <a class="page-scroll" href="#Traffic-Signs">
                                 <img class="center" src="../img/portfolio/ML_object_detection/traffic-sign.gif" alt="Traffic-signs recognition and classification" style="width:115%"></p></a>
                             <p class="text-center" style="font-size:14px">Traffic-signs recognition and classification</p>
@@ -116,6 +118,21 @@
                             <a class="page-scroll" href="#Trash">
                                 <img class="center" src="../img/portfolio/ML_object_detection/trash_recognition.gif" alt="Trash recognition and classification" style="width:115%"></p></a>
                             <p class="text-center" style="font-size:14px">Trash recognition and classification</p>
+                        </div> -->
+                        <div class="col-lg-3 col-sm-5">
+                            <a class="page-scroll" href="#Traffic-Signs">
+                                <img class="center" src="../img/portfolio/ML_object_detection/traffic-sign.gif" alt="Traffic-signs recognition and classification" style="width:130%"></p></a>
+                            <p class="text-center" style="width:130%; font-size:14px">Traffic-signs recognition and classification</p>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 col-lg-offset-1">
+                            <a class="page-scroll" href="#Trash">
+                                <img class="center" src="../img/portfolio/ML_object_detection/trash_recognition.gif" alt="Trash recognition and classification" style="width:130%"></p></a>
+                            <p class="text-center" style="width:130%; font-size:14px">Trash recognition and classification</p>
+                        </div>
+                        <div class="col-lg-3 col-sm-5 col-lg-offset-1">
+                            <a class="page-scroll" href="#Trash-sorting">
+                                <img class="center" src="../img/portfolio/ML_object_detection/detecting_baxter3.gif" alt="Trash recognition and classification" style="width:130%"></p></a>
+                            <p class="text-center" style="width:130%; font-size:14px">Real-time trash recognizing and sorting robot</p>
                         </div>
                     </div>
                     <section class="no-padding" id="Traffic-Signs">
@@ -154,14 +171,25 @@
                                 <img class="center" src="../img/portfolio/ML_object_detection/trash_recognition.gif" alt="Real-time detection" style="width:100%"></p>
                             <p class="text-center" style="font-size:14px">Real-time detection</p>
                         </div>
-                        <br>
-                        <h4>Implement Trash Detection in Recycler Baxter project</h4>       
+                    </section>
+                    <br><br>
+
+                    <section class="no-padding" id="Trash-sorting">
+                        <h3>Implementing Trash Detection in Recycler Baxter project</h3>       
                         <p>In addition, as a further development of the <a href="../recycler_baxter/index.html" target="_blank" rel="noopener"><u><b>Recycler Baxter</b></u></a> project, I used this machine learning implementation to detect and locate the recyclable objects sorted by the baxter robot</p>
                         <p>For this purpose, I trained my network to only detected the 10 different types of objects that the Baxter robot can grab (cans, bottles, paper/plastic cups, crisps bag etc).</p>
                         <p>The following video demonstrates the Baxter sorting robot uses the machine-learning perception pipeline to detect cans and bottles and separate them to tow different recycle bins:</p>
-                        <p class="text-center">
-                            <img class="center" src="../img/portfolio/ML_object_detection/detecting_baxter2.gif" alt="Sorting bottles and cans using machine learning recognition method" style="width:100%"></p>
-                        <p class="text-center" style="font-size:14px">Sorting bottles and cans using machine learning recognition method</p>  
+                        <div class="row no-gutter text-center">
+                            <div class="col-lg-5 col-sm-8">
+                                <img class="center" src="../img/portfolio/ML_object_detection/detecting_baxter3.gif" alt="Traffic-signs recognition and classification" style="width:115%"></p></a>
+                            </div>
+                            <div class="col-lg-5 col-sm-8 col-lg-offset-1">
+                                <img class="center" src="../img/portfolio/ML_object_detection/detecting_baxter4.gif" alt="Trash recognition and classification" style="width:115%"></p></a>
+                            </div>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                            <p class="text-center" style="font-size:14px">Sorting bottles and cans using machine learning recognition method</p>
+                        </div>
+                        <p>You can read more about this project <a href="../recycler_baxter/index.html" target="_blank" rel="noopener"><u><b>Here</b></u></a>.</p>
                     </section>
                 </div>
 
