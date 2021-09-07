@@ -7,8 +7,8 @@
 
                 <!-- Header -->
                 <div class="modal-header">
-                    <h3 class="text-center modal-title">Robot Navigation and Control</h3>
-                    <h4 class="text-center">Python  |  Autonomous Vehicle  |  Motion Planning  |  Path Planning  |  Feedforward Control |  Arduino</h4>
+                    <h2 class="text-center modal-title">Robot Navigation and Control</h2>
+                    <h5 class="text-center">Python  |  Autonomous Vehicle  |  Motion Planning  |  Path Planning  |  Feedforward Control |  Arduino</h5>
                 </div>
                 
                 <!-- body -->
@@ -17,20 +17,19 @@
                     <p>In this project, I build a wheeled robot and programmed it to navigate autonomously through a series of tasks,
                         Using Arduino, motors, encoders and distance sensors.</p>
                     <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Autonomous-Robot-Navigation-and-Control" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                    <p></p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/mechatronics/vehicle.jpg" alt="The vehicle" style="width:75%"></p>
                     <p class="text-center" style="font-size:14px">The autonomous vehicle</p>
-                    <br>
                     <h3>Tasks</h3>       
-                    <p>The main goal was to successfully pass a series of tasks in an obstacle course, as fast as possible:</p>
-                      <ol style="font-size:16px">
-                        <li>Navigating through a maze (Maze navigation and exploration)</li>
-                        <li>Driving through changing-slope path, keeping constant roll</li>
-                        <li>Following curved wall, keeping constant distance from it</li>
-                        <li>Driving on a changing-gradient slope, keeping constant speed</li>
-                        <li>Locating and reaching the finish line flag</li>
+                    <p>The main goal was to successfully pass a series of tasks in an obstacle course, as fast as possible:
+                      <ol>
+                        <li><b>Maze navigation and exploration</b> - Navigating through a maze</li>
+                        <li><b>Angle control</b> - Driving through changing-slope path, keeping constant roll</li>
+                        <li><b>Distance control</b> - Following curved wall, keeping constant distance from it</li>
+                        <li><b>Velocity control</b> - Driving on a changing-gradient slope, keeping constant speed</li>
+                        <li><b>Feature detection</b> - Locating and reaching the finish line flag</li>
                       </ol>  
+                    </p>
                     <br>
                     <div class="row no-gutter">
                         <div class="col-lg-4 col-sm-6">
@@ -45,26 +44,26 @@
                     </div>
                     <br>
                     <p class="text-center" style="font-size:14px">The autonomous vehicle in the obstacle course</p>
-                    <br>
                     <h3>System Description</h3>
                     <p>I used several components to control the robot motion:</p>
-                      <ul style="font-size:16px">
-                        <li>Arduino</li>
-                        <dl>
-                            <li>Motors & encoders:</li>
+                      <ul>
+                        <li><b>Control</b> - Arduino Mega 2560 R3</li>
+                        <li><b>Motors & encoders:</b>
+                            <dl>
                                 <dd>- PMW motor and encoder - One on each rear wheel to activate and control the motion</dd>
                                 <dd>- Servo motor - Located on the front of the vehicle and used to rotate the TOF sensor to desired scanning angle</dd>
-                        </dl>
-                        <dl>
-                            <li>Sensors</li>
+                            </dl>
+                        </li>
+                        <li><b>Sensors:</b>
+                            <dl>
                                 <dd>- IR sensor - One on each side of the vehicle to measure side distance</dd>
                                 <dd>- TOF (Time of Flight) sensor - Assembled on the servo motor to scan the surrounding space</dd>
                                 <dd>- US (ultrasonic) sensor - Located on the top of the vehicle to measure distance from objects above the vehicle</dd>
                                 <dd>- IMU 9250 (9 DOF) - Measures orientation (Gyroscope) and acceleration (Accelerometer). Compass is not in use</dd>
-                            <li>Led matrix - Indicates mission number and mission success/fail</li>
-                        </dl>
+                            </dl>
+                        </li>
+                        <li><b>Visual indication</b> - Led matrix, Indicates mission number and mission success/fail</li>
                       </ul>
-                    <br>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/mechatronics/system_explanation.png" alt="The system" style="width:75%"></p>
                     <p class="text-center" style="font-size:14px">The system</p>

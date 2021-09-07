@@ -1,0 +1,170 @@
+<aside class="bg-primary" style="max-height: 100px;"></aside>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+      }
+    });
+</script>  
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<section class="no-padding" id="EKF SLAM from Scratch">
+    <div class="container-fluid center">
+        <div class="row no-gutter center">
+            <div class="col-lg-8 col-lg-offset-2">
+
+                <!-- Header -->
+                <div class="modal-header">
+                    <h2 class="text-center modal-title">Feature-Based EKF-SLAM from Scratch</h2>
+                    <h5 class="text-center">ROS  |  C++  |  Differential Drive Kinematics  |  EKF SLAM  |   Data Association  |  Unsupervised Learning</h5>
+                </div>
+                
+                <!-- body -->
+                <div class="modal-body">
+                    <h3>Description</h3>       
+                    <p>In This project, I performed a landmark-based Extended Kalman Filtered (EKF) SLAM on Turtlebot3.
+                        I used unsupervised learning with known and unknown data association for simultaneous localization and mapping of the environment.
+                        <br>I implemented the project from scratch using ROS in C++.
+                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Sensing_Navigation_and_ML" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p></p>
+                    <p class="text-center">
+                        <img class="center" src="../img/portfolio/EKF_SLAM/EKF_SLAM_demo.gif" alt="EKF-SLAM" style="width:60%"></p>
+                    <p class="text-center" style="font-size:14px">Demo of the EKF-SLAM algorithm in action</p>
+                    <h3>Overview</h3>
+                    <h4>Packages</h4>
+                    <p>The project contains 6 core ROS packages:
+                        <ol>
+                            <li><b>nuturtle_descritopn</b> - A package that adapts the URDF model of turtlebot3_burger, a differential drive robot, for rviz visualization.</li>
+                            <li><b>rigid2d</b> - A 2D Lie Group library used for transformation, vectors and twist operations in 2D for differential drive robots.</li>
+                            <li><b>trect</b> - A package for waypoints following feedback control.</li>
+                            <li><b>nuturtle_robot</b> - A package for Turtlebot3 hardware interface, including setting motor control and getting Lidar readings.</li>
+                            <li><b>nuturtlesim</b> - A package that simulates the kinematics of the diff-drive turtlebot.</li>
+                            <li><b>nuslam</b> - A package contains the implementations of the feature detection algorithm and the feature-based Kalman Filter SLAM.</li>
+                        </ol>
+                    </p>
+                    <h3>Main Algorithms</h3>
+                    <h4>Rigid2d and Diff-Drive Kinematics</h4>
+                    <p>For further Rigid Body Transformations and Wheeled Mobile Robots Kinematics notation details, please refer to ME495 course notes about <a href="https://nu-msr.github.io/navigation_site/rigid2d.html" target="_blank" rel="noopener"><u><b>Rigid2d</b></u></a> and <a href="https://nu-msr.github.io/navigation_site/derive_kinematics.html" target="_blank" rel="noopener"><u><b>Diff-Drive Kinematics</b></u></a>.</p>
+
+
+                    <br>
+                    <h4>Feature Detection using supervised and unsupervised learning</h4>
+                    <p>Before performing SLAM, we need to detect landmarks that can be used as sensor measurements. For landmark detection, we need to solve 3 problems:
+                        <ol>
+                            <li>First we need to solve an <b>unsupervised learning problem</b> - clustering points into groups corresponding to individual landmarks.
+                                The laser scanner points clustering is based on a distance threshold, and any cluster contained less than 3 points is discarded.
+                            </li>
+                            <li>Next, we need to solve a <b>supervised learning problem</b> - circular regression. The circular regression problem can be solved using circle fitting algorithm [3].
+                                For further Circle Fitting notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/circle_fit.html" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.</li>
+                            <li>Finally, we need to solve a <b>classification problem</b> - classify the clusters of points into circle and non-circle to avoid false detections. This problem can be solved by arc/circle detection algorithm [4].</li>
+                        </ol>
+                    </p>
+                    <br>
+                    <h4>EKF SLAM with Known Data Association</h4>
+                    <p>I the EKF-SLAM algorithm, I used the following notations:</p>
+                    <p>The state of the robot at time $t$ is:
+                        $$ q_t = \begin{bmatrix}\theta_t \\ x_t \\ y_t \end{bmatrix} \in \Bbb{R}^3 $$
+                    </p>
+                    <p>The state of the map is:
+                        $$ m_t = \begin{bmatrix}m_{x_1} \\ m_{y_1} \\ \vdots \\ m_{x_n} \\ m_{y_n} \end{bmatrix} \in \Bbb{R}^{2n} $$
+                    </p>
+                    <p>The combined state vector is:
+                        $$ \xi_t = \begin{bmatrix}q_t \\ m_t \end{bmatrix} \in \Bbb{R}^{2n+3} $$
+                    </p>
+                    <p>The odometry model governs how the robot’s state transitions from time $t-1$ to time $t$, given the twist:
+                        $$ u_t = \begin{bmatrix}\Delta{\theta_t} \\ \Delta{x_t} \\ 0 \end{bmatrix} \in \Bbb{R}^3 $$
+                    </p>
+                    <p>The range measurement $r_j$, is the distance to landmark $j$. The bearing measurement $\phi_j$, is the relative bearing of landmark $j$.
+                    </p>
+                    <p>The measurement model relates the system states to the measurements. The measurement for range and bearing to landmark $j$ is:
+                        $$ z_j(t) = h_j(\xi_t) + v_t $$
+                        where
+                        $$ h_j(\xi_t) = \begin{bmatrix}r_j \\ \phi_j \end{bmatrix} $$
+                        and $v_t \sim N(0, R)$.
+                    </p>
+                    <p>At each timestep $t$, Extended Kalman filter SLAM takes odometry $u_t$ and sensor
+                        measurements $z_i$ and generates an estimate of the full state vector $\hat\xi_t$ and the covariance $\Sigma_t$.
+                    </p>
+                    <br>
+                    <p>The EKF-SLAM algorithm consists of two steps:
+                        <ol>
+                            <li>Measurement Estimation Prediction</li>
+                            <li>Measurement Estimation Update</li>
+                        </ol>
+                    </p>
+                    <br>
+                    <h5>Measurement Estimation Prediction</h5>
+                    <p>First, we updated the state estimate given a twist using:
+                        $$ \hat \xi_t^- = g(\hat \xi_{t-1}, u_t, \epsilon) $$
+                        Where $\hat \xi_t^-$ is the estimated state vector, and $\epsilon$ is motion noise.
+                    </p>
+                    <p>Next, we propagated the uncertainty using the linearized state transition model:
+                        $$ \hat \Sigma_t^- = g'(\hat \xi_{t-1}, u_t, \epsilon) \hat \Sigma_{t-1}g'(\hat \xi_{t-1}, u_t, \epsilon)^T + \bar Q $$
+                    </p>
+                    <p>where
+                        $$ \bar Q = \begin{bmatrix}Q && 0_{3X2n} \\ 0_{2nX3} && 0_{2nX2n} \end{bmatrix} $$
+                        is the process noise for the robot motion model.
+                    </p>
+                    <br>
+                    <h5>Measurement Estimation Update</h5>
+                    <p>There are practical steps that must occur prior to incorporating the measurements:
+                        <ol>
+                            <li>Data association: Each incoming measurement must be associated with
+                                an existing landmark state.</li>
+                            <li>Landmark Initialization: when a new landmark is encountered it must be
+                                added to the state vector and initialized.</li>
+                        </ol> 
+                    </p>
+                    <p>For each landmark $j$ associated with measurement $i$:</p>
+                    <p>First, compute the Kalman gain from the linearized measurement model:
+                        $$ K_i = \hat \Sigma_t^-h'_j(\xi_t)^T(h'_j(\xi_t)\Sigma_t^-h'_j(\xi_t)^T + R)^{-1} $$
+                        where R is a diagonal measurement noise matrix.
+                    </p>
+                    <p>Then, compute the posterior state update:
+                        $$ \hat\xi_t = \hat\xi_t^- + K(z_t^i - \hat z_t^i) $$
+                        where $\hat z_t^i = h_j(\hat \xi_t^-)$ is the theoretical measurement and $z_t^i$ is the actual measurement.
+                    </p>
+                    <p>Finally, compute the posterior covariance:
+                        $$ \Sigma_t = (I-K_iH_i)\Sigma_t^- $$
+                    </p>
+                    <p>To incorporate the next measurement $(i+1)$, use the updated state $\xi_t$ and covariance $\Sigma_t$ for $\xi_t^-$ and $\Sigma_t^-$.</p>
+
+                    <p>For further EKF SLAM notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/slam.pdf" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.</p>
+                    <br>
+                    <h5>Data Association</h5>
+                    <p>To perform SLAM effectively, measurements must be associated with the proper features in the map.</p>
+                    
+                    
+                    <p>For further Data Association notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/data_assoc.html" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.</p>
+                    <br>
+                    <h4>Unknown Data Association</h4>
+                    
+                    <br>
+                    <h3>References</h3>
+                    <ul>
+                        <p>[1] <a href="https://nu-msr.github.io/navigation_site/index.html" target="_blank" rel="noopener"><u>ME495 - Sensing, Navigation, and Machine Learning for Robotics</u></a> course notes by Professor Matthew Elwin, Northwestern University (2021)</p>
+                        <p>[2] K. Lynch and F. Park, Modern Robotics: Mechanics, Planning, and Control, Cambridge University Press (2017)</p>
+                        <p>[3] A. Al-Sharadqah and N. Chernov, Error Analysis for Circle Fitting Algorithms, Electronic Journal of Statistics (2009)</p>
+                        <p>[4] J. Xavier et al., Fast line, arc/circle and leg detection from laser scan data in a Player driver, ICRA (2005)</p>
+                    </ul>
+                </div>
+
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="text-center">
+                        <p></p>
+                        <form action="https://github.com/YaelBenShalom/Sensing_Navigation_and_ML" method="get" target="_blank">
+                            <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
+                        </form>
+                        <p></p>
+                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

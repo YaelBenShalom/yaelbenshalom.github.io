@@ -86,8 +86,8 @@
 
                 <!-- Header -->
                 <div class="modal-header">
-                    <h3 class="text-center modal-title">Recycler Baxter</h3>
-                    <h4 class="text-center">ROS  |  Python  |  Computer Vision  |  Motion Planning  |  Inverse Kinematics  |  OpenCV  |  MoveIt</h4>
+                    <h2 class="text-center modal-title">Recycler Baxter</h2>
+                    <h5 class="text-center">ROS  |  Python  |  Computer Vision  |  Motion Planning  |  Inverse Kinematics  |  OpenCV  |  MoveIt</h5>
                 </div>
                 
                 <!-- body -->
@@ -104,32 +104,29 @@
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/Baxter/Baxter.gif" alt="The Baxter in action" style="width:80%"></p>
                     <p class="text-center" style="font-size:14px">The Baxter in action</p>
-                    <br>
                     <h3>System Overview</h3>
-                    <p>In order to recognize and separate the objects into two different recycle bins, our program is going through a number of steps:</p>
-                    <ol style="font-size:16px">
-                        <li>Object detection</li>
-                        <li>Object segmentation and calibration</li>
-                        <li>Robot operation</li>
-                    </ol>
-                    <br>
-                    <h4 style="font-size:20px">Step I: Objects Detection</h4> 
+                    <p>In order to recognize and separate the objects into two different recycle bins, our program is going through a number of steps:
+                        <ol>
+                            <li>Object detection</li>
+                            <li>Object segmentation and calibration</li>
+                            <li>Robot operation</li>
+                        </ol>
+                    </p>
+                    <h4>Step I: Objects Detection</h4> 
                     <p>In this step, we used a Realsense D435i camera to get a real-time image of the randomly placed objects.
                         <br>We used OpenCV and image processing libraries to detect and differentiate the objects into 2 groups - cans and bottles.</p>
                     <p>The following video demonstrates the object differentiation software for several types of cans and bottles:</p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/Baxter/CV.gif" alt="Recognizing and classifying bottles and cans" style="width:80%"></p>
                     <p class="text-center" style="font-size:14px">Recognizing and classifying bottles and cans</p>
-                    <br>
-                    <h4 style="font-size:20px">Step II: Objects Segmentation and Calibration</h4> 
+                    <h4>Step II: Objects Segmentation and Calibration</h4> 
                     <p>In this step, we used the OpenCV library to find the objects segmentation (pixel location in the image).
                         <br>We also located 2 known calibration points (marked in green in the following image) to help us convert objects coordinates from pixels to meters.</p>
                     <p>The following image demonstrates the differentiation between bottles, cans, and calibrations points:</p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/Baxter/realsense.png" alt="Recognizing and classifying bottles and cans" style="width:60%">
                     <p class="text-center" style="font-size:14px">Recognizing and classifying bottles and cans</p> 
-                    <br>
-                    <h4 style="font-size:20px">Step III: Robot Operation</h4> 
+                    <h4>Step III: Robot Operation</h4> 
                     <p>In this step, we used MoveIt! library for the robot's motion planning and manipulation.
                         <br>The robot moves to the pre-detected objects' locations, grasps one object at a time, and throws it into the appropriate recycle bin.
                         The robot repeats those actions until it finishes picking up all the objects on the table.</p>
@@ -139,9 +136,6 @@
                     <p class="text-center" style="font-size:14px">Sorting bottles and cans</p>               
                 </div>
                 <h3>Future Work</h3>
-                <p>For future work, our vition was to use machine learning algorithm for better objects classification (with this method, we could only classify specific shapes and orientations of bottles and cans).
-                <br>By using machine learning methods, we could classify different types of bottles and cans with the same label, and throw them to the same trash bin.</p>
-                <br>
                 <p>Later, as part of a machine learning based project - <a href="../ML_object_detection/index.html" target="_blank" rel="noopener"><u><b>Real-Time Object Recognition and Classification</b></u></a>, I returned to the Recycler Baxter projects and tried to solve the perception pipeline problems.</p>
                 <p>The following video demonstrates the Baxter sorting robot uses the machine-learning perception pipeline to detect cans and bottles and separate them to tow different recycle bins:</p>
                 <div class="row no-gutter text-center">
@@ -150,10 +144,9 @@
                     </div>
                     <div class="col-lg-5 col-sm-8 col-lg-offset-1">
                         <img class="center" src="../img/portfolio/ML_object_detection/detecting_baxter.gif" alt="Trash recognition and classification" style="width:115%"></p></a>
-                    </div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <p class="text-center" style="font-size:14px">Sorting bottles and cans using machine learning recognition method</p>
+                    </div>                    
                 </div>
+                <p class="text-center" style="font-size:14px">Sorting bottles and cans using machine learning recognition method</p>
                 <p>You can read more about this project <a href="../ML_object_detection/index.html" target="_blank" rel="noopener"><u><b>Here</b></u></a>.</p>
 
                 <!-- footer -->

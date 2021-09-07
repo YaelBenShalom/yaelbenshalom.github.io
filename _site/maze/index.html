@@ -86,8 +86,8 @@
 
                 <!-- Header -->
                 <div class="modal-header">
-                    <h3 class="text-center modal-title">Maze Implementation and Exploration</h3>
-                    <h4 class="text-center">Python  |  Randomized Maze-Generation Algorithm  |  Maze-Solving Algorithm  |  Path Planning</h4>
+                    <h2 class="text-center modal-title">Maze Implementation and Exploration</h2>
+                    <h5 class="text-center">Python  |  Randomized Maze-Generation Algorithm  |  Maze-Solving Algorithm  |  Path Planning</h5>
                 </div>
                 
                 <!-- body -->
@@ -96,51 +96,47 @@
                     <p>In this project, my team and I created a maze exploration software. We generated a random maze (sized according to user's choice), and solved it for the simulated robotic agent.
                         The agent is taking discrete steps on a grid in the maze, while trying to navigate to a goal.
                     <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Python_a-Maze-ing_Challenge" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                    <p></p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/maze/maze.gif" alt="Solving 31x11 maze" style="width:100%"></p>
                     <p class="text-center" style="font-size:14px">Solving 31x11 maze</p>
-                    <br>
                     <h3>Overview</h3>
-                    <h4 style="font-size:20px">Core Tasks</h4> 
-                    <ol style="font-size:16px">
-                        <li>Maze generation</li>
-                        <li>Maze state</li>
-                        <li>Solve the maze</li>
-                        <li>Display the maze</li>
-                        <li>Maze interface</li>
-                    </ol>
-                    <p></p>
-                    <h4 style="font-size:20px">Maze generation</h4> 
-                    <p>Generate a maze by implementing the randomized Prim's maze generation algorithm.
-                        <br>The pseudocode for this algorithm:</p>
+                    <h4>Core Tasks</h4>
+                    <p>In this project, we had 5 core tasks:
+                        <ol>
+                            <li>Maze generation</li>
+                            <li>Maze state</li>
+                            <li>Solve the maze</li>
+                            <li>Display the maze</li>
+                            <li>Maze interface</li>
+                        </ol>
+                    </p> 
+                    <h4>Maze generation</h4> 
+                    <p>Generate a maze by implementing the randomized Prim's maze generation algorithm.</p>
+                    <p>The pseudocode for this algorithm:</p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/maze/pseudocode.png" alt="Maze generation pseudocode" style="width:60%"></p>
                         <p class="text-center" style="font-size:14px">Maze generation pseudocode</p>
-                    <br>
-                    <h4 style="font-size:20px">Maze state</h4> 
-                    <p>Track the state of the maze and determine if a grid square is wall/free, or is it the goal/start point
-                        <br>Be able to find the 1-hop and 2-hop neighbors of a cell (for maze generation and exploration).</p>
-                    <p></p>
-                    <h4 style="font-size:20px">Solve the maze</h4> 
+                    <h4>Maze state</h4> 
+                    <p>Track the state of the maze and determine if a grid square is wall/free, or is it the goal/start point.</p>
+                    <p>Be able to find the 1-hop and 2-hop neighbors of a cell (for maze generation and exploration).</p>
+                    <h4>Solve the maze</h4> 
                     <p>Implement the "Wavefront Planner" maze solving algorithms.
-                        <br>The pseudocode for Wavefront Planner algorithm:</p>
-                    <ol style="font-size:16px">
-                        <li>Breadth-first search approach</li>
-                        <li>Start at the goal</li>
-                        <li>Advance one square in every direction and mark with a 1</li>
-                        <li>From each 1, advance to every open square and mark with a 2</li>
-                        <li>From each n-1 square advance to every open square and mark with an n</li>
-                        <li>Stop when there are no more squares to explore</li>
-                        <li>From any starting point, move to the adjacent cell with the lowest number</li>
-                        <li>Stop at the goal</li>
-                    </ol>   
+                        <br>The pseudocode for Wavefront Planner algorithm:
+                        <ol>
+                            <li>Breadth-first search approach</li>
+                            <li>Start at the goal</li>
+                            <li>Advance one square in every direction and mark with a 1</li>
+                            <li>From each 1, advance to every open square and mark with a 2</li>
+                            <li>From each n-1 square advance to every open square and mark with an n</li>
+                            <li>Stop when there are no more squares to explore</li>
+                            <li>From any starting point, move to the adjacent cell with the lowest number</li>
+                            <li>Stop at the goal</li>
+                        </ol>
+                    </p>
                     <p>The algorithm finds the shortest path to a given goal from every starting point, but it requires full knowledge of the maze.</p>
-                    <p></p>
-                    <h4 style="font-size:20px">Maze interface and display</h4> 
+                    <h4>Maze interface and display</h4> 
                     <p>Display the maze's walls, free cells, start position, and goal position.
                         <br>Display the robot position as it moves.</p>         
-                    <p></p>    
                     <p>In the following video, the software generates and solves a 20x13 maze:</p>
                     <p class="text-center">
                         <img class="center" src="../img/portfolio/maze/maze2.gif" alt="Solving 20x13 maze" style="width:60%"></p>

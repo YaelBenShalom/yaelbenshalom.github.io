@@ -36,10 +36,42 @@ h6 {
     @include sans-serif-font;
 }
 
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+    line-height: 2;
+    font-size: 28px;
+    font-weight: bold;
+}
+h4 {
+    line-height: 1.8;
+    font-size: 24px;
+}
+h5 {
+    font-size: 22px;
+}
+h6 {
+  font-size: 14px;
+}
+
 p {
     font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    line-height: 1.7;
+    // margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+ol, ul, dl {
+    font-size:16px;
+    line-height: 28px;
+}
+
+li, dd {
+    margin-bottom: 10px;
 }
 
 .bg-primary {
