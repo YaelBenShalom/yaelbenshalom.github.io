@@ -47,9 +47,47 @@
                     </p>
                     <h3>Main Algorithms</h3>
                     <h4>Rigid2d and Diff-Drive Kinematics</h4>
+                    <p>The library <a href="https://github.com/YaelBenShalom/Sensing_Navigation_and_ML/blob/master/rigid2d/src/rigid2d.cpp" target="_blank" rel="noopener"><u><b>rigid2d</b></u></a> performs two-dimensional rigid body transformations,
+                        and the library <a href="https://github.com/YaelBenShalom/Sensing_Navigation_and_ML/blob/master/rigid2d/src/diff_drive.cpp" target="_blank" rel="noopener"><u><b>diff_drive</b></u></a> performs the kinematics of a differential drive robot.
+                        The latter's main porpuse is to convert wheel velocity to body twist and vice versa, and derive the odometry.</p>
+                    <br>
+                    <h5>Twist to wheel velocity</h5>
+                    <p>Acording to [2], we can write the twist of each wheel as:
+                        $$ V_i = A_{ib}\cdot V_b $$
+                        Where
+                        $$ V = \begin{bmatrix} \dot\theta \\ V_x \\ V_y \end{bmatrix} $$
+                        and
+                        $$ A_{ib} = \begin{bmatrix}1 && 0 && 0 \\ Base && 1 && 0 \\ 0 && 0 && 1 \end{bmatrix} $$
+                        $ Base = D $ for wheel 1, and $ Base = -D $ for wheel 2.
+                    </p>
+                    <p class="text-center">
+                        <img class="center" src="../img/portfolio/EKF_SLAM/robot_description.png" alt="robot description" style="width:60%"></p>
+                    <p class="text-center" style="font-size:14px">Robot sketch</p>
+
+                    <p>In conventional wheel we assume no slipping and no sliding ($V_y = 0$). Therefore:
+                        $$ \begin{bmatrix}\dot\theta \\ V_{xi} \\ V_{yi} \end{bmatrix} = \begin{bmatrix}1 && 0 && 0 \\ Base && 1 && 0 \\ 0 && 0 && 1 \end{bmatrix} \begin{bmatrix}\dot\theta \\ r\dot\phi_i \\ 0 \end{bmatrix} $$
+                        Where $ \dot\phi_i $ is the rotational velocity of wheel $i$ and $r$ is the wheel radius.
+                    </p>
+                    <p>Now, by extracting $ \dot\phi_i $, we can find the connection between wheel velocity and twist:
+                        $$ \underbrace{\begin{bmatrix} \dot\phi_1 \\  \dot\phi_2 \end{bmatrix}}_u = \frac{1}{r} \underbrace{\begin{bmatrix} -D && 1 && 0 \\ +D && 1 && 0 \end{bmatrix}}_H \underbrace{\begin{bmatrix} \dot\theta \\ V_x \\ V_y \end{bmatrix}}_{V_b} $$
+                    </p>
+                    <br>
+                    <h5>Wheel velocity to twist</h5>
+                    <p>From [2], we can find the control to twist relationship by solving $ u = HV_b $ for $ V_b $ as:
+                        $$ V_b = H^\dagger u $$
+                        Where $ H^\dagger = H^T(HH^T)^{-1} $ is the Moore-Penrose Pseudoinverse.
+                    </p>
+                    <p>From here we can get:
+                        $$ H^\dagger = \begin{bmatrix} -\frac{1}{2D} &&  \frac{1}{2D} \\ \frac{1}{2} && \frac{1}{2} \\ 0 && 0 \end{bmatrix} $$
+                        and therefore:
+                        $$ V_b = r\begin{bmatrix} -\frac{1}{2D} && \frac{1}{2D} \\ \frac{1}{2} && \frac{1}{2} \\ 0 && 0 \end{bmatrix} \begin{bmatrix} \dot\phi_1 \\ \dot\phi_2 \end{bmatrix} $$
+                    </p>
+                    <br>
+                    <p>The following video demonstrate the turtlebot3 moving in circular path using those libraries:</p>
+                    <p class="text-center">
+                        <img class="center" src="../img/portfolio/EKF_SLAM/circular_path.gif" alt="circular path" style="width:40%"></p>
+                    <p class="text-center" style="font-size:14px">Demo of the turtlebot3 moving in circular path using rigid2d and diff_drive libraries</p>
                     <p>For further Rigid Body Transformations and Wheeled Mobile Robots Kinematics notation details, please refer to ME495 course notes about <a href="https://nu-msr.github.io/navigation_site/rigid2d.html" target="_blank" rel="noopener"><u><b>Rigid2d</b></u></a> and <a href="https://nu-msr.github.io/navigation_site/derive_kinematics.html" target="_blank" rel="noopener"><u><b>Diff-Drive Kinematics</b></u></a>.</p>
-
-
                     <br>
                     <h4>Feature Detection using supervised and unsupervised learning</h4>
                     <p>Before performing SLAM, we need to detect landmarks that can be used as sensor measurements. For landmark detection, we need to solve 3 problems:
@@ -109,7 +147,7 @@
                         is the process noise for the robot motion model.
                     </p>
                     <br>
-                    <h5>Measurement Estimation Update</h5>
+                    <h5>Measurement Estimation Update - Data Association</h5>
                     <p>There are practical steps that must occur prior to incorporating the measurements:
                         <ol>
                             <li>Data association: Each incoming measurement must be associated with
@@ -131,18 +169,10 @@
                         $$ \Sigma_t = (I-K_iH_i)\Sigma_t^- $$
                     </p>
                     <p>To incorporate the next measurement $(i+1)$, use the updated state $\xi_t$ and covariance $\Sigma_t$ for $\xi_t^-$ and $\Sigma_t^-$.</p>
-
-                    <p>For further EKF SLAM notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/slam.pdf" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.</p>
                     <br>
-                    <h5>Data Association</h5>
-                    <p>To perform SLAM effectively, measurements must be associated with the proper features in the map.</p>
-                    
-                    
-                    <p>For further Data Association notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/data_assoc.html" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.</p>
+                    <p>For further EKF SLAM notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/slam.pdf" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.
+                        <br>For further Data Association notation details, please refer to <a href="https://nu-msr.github.io/navigation_site/data_assoc.html" target="_blank" rel="noopener"><u><b>this webpage</b></u></a>.</p>
                     <br>
-                    <!-- <h4>Unknown Data Association</h4>
-                    
-                    <br> -->
                     <h3>References</h3>
                     <ul>
                         <p>[1] <a href="https://nu-msr.github.io/navigation_site/index.html" target="_blank" rel="noopener"><u>ME495 - Sensing, Navigation, and Machine Learning for Robotics</u></a> course notes by Professor Matthew Elwin, Northwestern University (2021)</p>
