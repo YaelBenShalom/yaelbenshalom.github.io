@@ -19,89 +19,117 @@
                 <!-- Header -->
                 <div class="modal-header">
                     <h2 class="text-center modal-title">Jack-in-a-Box Dynamic Simulation</h2>
-                    <h5 class="text-center">Python  |  Dynamic Simulation</h5>
+                    <h5 class="text-center">Python  |  Dynamic Simulation  |  Ridig Body Dynamics  |  Impact Analysis</h5>
                 </div>
                 
                 <!-- body -->
                 <div class="modal-body">
                     <h3>Description</h3>       
-                    <p>In this project, I simulated and animated the dynamics of a planar jack-in-a-box system. 
-                        <br>The simulation forecast the dynamic of the multi-body system in time, while the bodies experience multiple impacts between each other
-                        (impacts between the jack's masses and the box’s walls).</p>
-                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Simulating-Jack-in-a-Box" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
-                    <p class="text-center" style="font-size:14px">Jack-in-a-box - dynamic simulation</p>
+                        <p>In this project, I simulated and animated the dynamics of a planar jack-in-a-box system.</p>
+                        <p>The simulation forecast the dynamic of the multi-body system in time, while the bodies experience multiple impacts between each other
+                            (impacts between the jack's masses and the box’s walls).</p>
+                        <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Simulating-Jack-in-a-Box" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                        <p class="text-center">
+                            <img src="../img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
+                        <p class="img_description">Jack-in-a-box - dynamic simulation</p>
+                        <br>
+
                     <h3>Overview</h3>       
-                    <p>The dynamic system includes 2 rigid bodies in a planar system - a squared box and a 4-mass jack, as shown below.
-                        <br>On the two bodies acts external forces and gravity, that causes them to move and impact each other. The jack falls down with gravity, while on the box acts an equal
-                        and opposite force to gravity that keeps it in it's place. On the box also acts a sinusoidal torque that makes it rotate back and forth in a constant frequency.</p>
-                    <p>The system can be define using the following configuration valuables:
-                        $$ q = \begin{bmatrix} x_{box} \\ y_{box} \\ \theta_{box} \\ x_{jack} \\ y_{jack} \\ \theta_{jack} \end{bmatrix} $$
-                    </p>
-                    <h4>Rigid-Body Transformations</h4>
-                    <p>In order to keep track of the position of the bodies through the simulation, I defined a series of sub-frame for every mass in the system that portray the location
-                        of the mass relative to the system's main frame.</p>
-                    <p>The following drawing shown the different frames in the system:</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/dynamic_simulation/final-projects - frames.jpg" alt="Dynamic simulation" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">Jack-in-a-box - system sketch</p>
-                    <p>In order to transform between frames, I used several rigid-body transformations. The transformations where
-                        calculated using the standard form of rigid-body transformation:
-                        $$ g(x, y, \theta) = \begin{bmatrix} cos(\theta) && -sin(\theta) && 0 && x \\ sin(\theta) && cos(\theta) && 0 && y \\ 0 && 0 && 1 && 0 \\ 0 && 0 && 0 && 1 \end{bmatrix} $$
-                        Where $x$ and $y$ represent the translation between the frames and $\theta$ represents the rotation between the frames.
-                    </p>
-                    <p>In order to find the transformation between the two frames, I used transformation matrix multiplication:
-                        $$ g_{ac} = g_{ab} \cdot g_{bc} $$
-                    </p>
-                    <h4>Process Explanation</h4>
-                    <p>Before starting any calculations, I defined two external forces $F$ applied on the box at all times - 
-                        the first force is equal and opposite to the gravity, and is intended to keep the box in the middle of the screen (for animation purposes).
-                        The second force causes a sinusoidal torque on the box and intended to rotate it (to make the simulation more interesting).</p>
-                    <p>To simulate the system, I used the Euler-Lagrange equations and the impact laws.
-                    <p>In order to compute the Euler-Lagrange equations, I calculated the transformation matrices described above
-                        and used them to calculate the velocities and inertia matrices of the rigid-bodies.</p>
-                    <p>The body velocity were calculated using the body transformations (for every body $i$) using:
-                        $$ V = ({g_{w,i}}^{-1} \cdot ({g_{w,i}}^{-1})') $$
-                    </p>
-                    <p>The inertia matrices were calculated using the body mass and inertia (for every body $i$):
-                        $$ I = \begin{bmatrix} m && 0 && 0 && 0 && 0 && 0 \\ 0 && m && 0 && 0 && 0 && 0 \\ 0 && 0 && m && 0 && 0 && 0 \\ 0 && 0 && 0 && J_x && 0 && 0 \\ 0 && 0 && 0 && 0 && J_y && 0 \\ 0 && 0 && 0 && 0 && 0 && J_z \end{bmatrix} $$
-                        Where $m$ is the body's mass and $J$ is the body's inertia. In a planar system, $J_x = J_y = 0$.
-                    </p>
-                    <p>Then, I calculated the kinetic and potential energy of the system in order to compute the Lagrangian:
-                        $$ KE = \frac{1}{2} \sum (V_i^T \cdot I_i \cdot V_i) $$
-                        $$ PE = \sum (g \cdot m_i \cdot y_i) $$
-                        $$ L = KE - PE $$
-                    </p>
-                    <p>Then, I took a derivative of the Lagrangian with respect to the configuration vector q to get the left side of
-                        the E-L equations, and compared that to the force vector:
-                        $$ \biggl(\frac{\partial L}{\partial q'}\biggr)' - \frac{\partial L}{\partial q} = F $$
-                    </p>
-                          
-                    <p>There are total of 16 possible impact scenarios (anyone of the jack's masses can impact anyone of the box's walls). To compute the impacts, I defined 16 impact constraints. The impact constraints were the distance
-                        between the jack's mass to the wall, for every wall and mass – when the distance is 0, an impact occurs. All of the impacts in this system are ideal elastic impacts.</p>
-                    <p>For the right/left wall, the constraints depended only on the x axis:
-                        $$ \varphi_{b1/b3-ji} = g_{b1/b3-ji}[x] $$
-                    </p>
-                    <p>For the top/bottom wall, the constraints depended only on the y axis:
-                        $$ \varphi_{b2/b4-ji} = g_{b2/b4-ji}[y] $$
-                        Where $i$ is the jack's mass number.
-                    </p>
-                    <p>To compute the impact equations, I calculated the Hemiltonian:
-                        $$ H = \frac{\partial L}{\partial q'} \cdot q' - L $$
-                    </p>
-                    <p>Then, I calculated the impact equations for every one of the possible impacts (16 possibilities) and the hemiltonian impact condition:
-                        $$ \begin{cases} \bigl(\frac{\partial L}{\partial q'}\bigr)'^+ - \bigl(\frac{\partial L}{\partial q'}\bigr)'^- = \lambda \cdot \nabla \varphi \\[2ex] 
-                        H^+ - H^- = 0 \end{cases} $$
-                    </p>
-                    <h4>Dynamic Simulation</h4>
-                    <p>For every timestep ($\Delta t = 0.01 sec$), I checked for impacts and updated the configuration accordingly.</p>
-                    <p>The system started from rest (besides the box's angular velocity), and both the box and the jack started from $(0, 0)$ in the world frame</p>
-                    <p>You can see the simulation results in the following short video:</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
-                    <p class="text-center" style="font-size:14px">Jack-in-a-box - system animation</p>
-                    <p>The full project description can be found <a href="../img/portfolio/dynamic_simulation/final_project_description.pdf" target="_blank" rel="noopener"><u><b>here</b></u></a>.</p>
+                        <p>The dynamic system includes 2 rigid bodies in a planar system - a squared box and a 4-mass jack, as shown below.</p>
+                        <p>On the two bodies acts external forces and gravity, that causes them to move and impact each other. The jack falls down with gravity, while on the box acts an equal
+                            and opposite force to gravity that keeps it in it's place. On the box also acts a sinusoidal torque that makes it rotate back and forth in a constant frequency.</p>
+                        <p>The system can be define using the following configuration valuables:
+                            $$ q =  \begin{bmatrix}  x_{box}         \\
+                                                     y_{box}         \\
+                                                     \theta_{box}    \\
+                                                     x_{jack}        \\
+                                                     y_{jack}        \\
+                                                     \theta_{jack}
+                                    \end{bmatrix}
+                            $$
+                        </p>
+                        <br>
+
+                        <h4>Rigid-Body Transformations</h4>
+                            <p>In order to keep track of the position of the bodies through the simulation, I defined a series of sub-frame for every mass in the system that portray the location
+                                of the mass relative to the system's main frame.</p>
+                            <p>The following drawing shown the different frames in the system:</p>
+                            <p class="text-center">
+                                <img src="../img/portfolio/dynamic_simulation/final-projects - frames.jpg" alt="Dynamic simulation" style="width:80%"></p>
+                            <p class="img_description">Jack-in-a-box - system sketch</p>
+                            <p>In order to transform between frames, I used several rigid-body transformations. The transformations where
+                                calculated using the standard form of rigid-body transformation:
+                                $$ g(x, y, \theta) =    \begin{bmatrix}    cos(\theta) &&  -sin(\theta)    &&  0   &&  x   \\
+                                                                           sin(\theta) &&  cos(\theta)     &&  0   &&  y   \\
+                                                                           0           &&  0               &&  1   &&  0   \\
+                                                                           0           &&  0               &&  0   &&  1
+                                                        \end{bmatrix}
+                                $$
+                                Where $x$ and $y$ represent the translation between the frames and $\theta$ represents the rotation between the frames.
+                            </p>
+                            <p>In order to find the transformation between the two frames, I used transformation matrix multiplication:
+                                $$ g_{ac} = g_{ab} \cdot g_{bc} $$
+                            </p>
+                            <br>
+
+                        <h4>Process Explanation</h4>
+                            <p>Before starting any calculations, I defined two external forces $F$ applied on the box at all times - 
+                                the first force is equal and opposite to the gravity, and is intended to keep the box in the middle of the screen (for animation purposes).
+                                The second force causes a sinusoidal torque on the box and intended to rotate it (to make the simulation more interesting).</p>
+                            <p>To simulate the system, I used the Euler-Lagrange equations and the impact laws.
+                            <p>In order to compute the Euler-Lagrange equations, I calculated the transformation matrices described above
+                                and used them to calculate the velocities and inertia matrices of the rigid-bodies.</p>
+                            <p>The body velocity were calculated using the body transformations (for every body $i$) using:
+                                $$ V = ({g_{w,i}}^{-1} \cdot ({g_{w,i}}^{-1})') $$
+                            </p>
+                            <p>The inertia matrices were calculated using the body mass and inertia (for every body $i$):
+                                $$ I =  \begin{bmatrix}  m   &&  0   &&  0   &&  0   &&  0   &&  0   \\
+                                                         0   &&  m   &&  0   &&  0   &&  0   &&  0   \\
+                                                         0   &&  0   &&  m   &&  0   &&  0   &&  0   \\
+                                                         0   &&  0   &&  0   &&  J_x &&  0   &&  0   \\
+                                                         0   &&  0   &&  0   &&  0   &&  J_y &&  0   \\
+                                                         0   &&  0   &&  0   &&  0   &&  0   &&  J_z
+                                        \end{bmatrix}
+                                $$
+                                Where $m$ is the body's mass and $J$ is the body's inertia. In a planar system, $ J_x = J_y = 0 $.
+                            </p>
+                            <p>Then, I calculated the kinetic and potential energy of the system in order to compute the Lagrangian:
+                                $$ KE = \frac{1}{2} \sum (V_i^T \cdot I_i \cdot V_i) $$
+                                $$ PE = \sum (g \cdot m_i \cdot y_i) $$
+                                $$ L = KE - PE $$
+                            </p>
+                            <p>Then, I took a derivative of the Lagrangian with respect to the configuration vector q to get the left side of
+                                the E-L equations, and compared that to the force vector:
+                                $$ \biggl(\frac{\partial L}{\partial q'}\biggr)' - \frac{\partial L}{\partial q} = F $$
+                            </p>
+                            <p>There are total of 16 possible impact scenarios (anyone of the jack's masses can impact anyone of the box's walls). To compute the impacts, I defined 16 impact constraints. The impact constraints were the distance
+                                between the jack's mass to the wall, for every wall and mass – when the distance is 0, an impact occurs. All of the impacts in this system are ideal elastic impacts.</p>
+                            <p>For the right/left wall, the constraints depended only on the x axis:
+                                $$ \varphi_{b1/b3-ji} = g_{b1/b3-ji}[x] $$
+                            </p>
+                            <p>For the top/bottom wall, the constraints depended only on the y axis:
+                                $$ \varphi_{b2/b4-ji} = g_{b2/b4-ji}[y] $$
+                                Where $i$ is the jack's mass number.
+                            </p>
+                            <p>To compute the impact equations, I calculated the Hemiltonian:
+                                $$ H = \frac{\partial L}{\partial q'} \cdot q' - L $$
+                            </p>
+                            <p>Then, I calculated the impact equations for every one of the possible impacts (16 possibilities) and the hemiltonian impact condition:
+                                $$  \begin{cases}    \bigl(\frac{\partial L}{\partial q'}\bigr)'^+ - \bigl(\frac{\partial L}{\partial q'}\bigr)'^- = \lambda \cdot \nabla \varphi \\[2ex] 
+                                                    H^+ - H^- = 0
+                                    \end{cases}
+                                $$
+                            </p>
+                            <br>
+
+                        <h4>Dynamic Simulation</h4>
+                            <p>For every timestep ($\Delta t = 0.01 sec$), I checked for impacts and updated the configuration accordingly.</p>
+                            <p>The system started from rest (besides the box's angular velocity), and both the box and the jack started from $(0, 0)$ in the world frame</p>
+                            <p>You can see the simulation results in the following short video:</p>
+                            <p class="text-center">
+                                <img src="../img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
+                            <p class="img_description">Jack-in-a-box - system animation</p>
+                            <p>The full project description can be found <a href="../img/portfolio/dynamic_simulation/final_project_description.pdf" target="_blank" rel="noopener"><u><b>here</b></u></a>.</p>
                 </div>
 
                 <!-- footer -->

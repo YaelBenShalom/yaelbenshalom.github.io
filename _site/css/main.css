@@ -37,12 +37,12 @@ h2 {
   font-size: 30px; }
 
 h3 {
-  line-height: 2;
+  line-height: 1.5;
   font-size: 28px;
   font-weight: bold; }
 
 h4 {
-  line-height: 1.8;
+  line-height: 1.5;
   font-size: 24px; }
 
 h5 {
@@ -54,7 +54,8 @@ h6 {
 p {
   font-size: 16px;
   line-height: 1.7;
-  margin-bottom: 15px; }
+  margin-top: 10px;
+  margin-bottom: 10px; }
 
 ol, ul, dl {
   font-size: 16px;
@@ -62,6 +63,10 @@ ol, ul, dl {
 
 li, dd {
   margin-bottom: 10px; }
+
+.img_description {
+  text-align: center;
+  font-size: 14px; }
 
 .bg-primary {
   background-color: #222; }

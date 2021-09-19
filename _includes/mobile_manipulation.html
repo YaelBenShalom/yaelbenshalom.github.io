@@ -25,63 +25,84 @@
                 <!-- body -->
                 <div class="modal-body">
                     <h3>Description</h3>       
-                    <p>In this project, I wrote a software that plans a trajectory for the end-effector of the YouBot mobile manipulator, performs an odometry as the chassis moves,
-                        and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down in the V-REP
-                        simulation software.
-                        <br>The YouBot is an omnidirectional mobile robot with a 5-DOF robotic arm, simulated in CoppeliaSim simulation software.</p>
-                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Mobile-Manipulation" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/Manipulation/best_fast.gif" alt="Motion planning for YouBot mobile manipulator" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">Motion planning for YouBot mobile manipulator</p>
+                        <p>In this project, I wrote a software that plans a trajectory for the end-effector of the YouBot mobile manipulator, performs an odometry as the chassis moves,
+                            and performs feedback control to drive the youBot to pick up a block at a specified location, carry it to a desired location, and put it down in the V-REP
+                            simulation software.</p>
+                        <p>The YouBot is an omnidirectional mobile robot with a 5-DOF robotic arm, simulated in CoppeliaSim simulation software.</p>
+                        <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Mobile-Manipulation" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                        <p>For further information about this project, visit the project's <a href="http://hades.mech.northwestern.edu/index.php/Mobile_Manipulation_Capstone" target="_blank" rel="noopener"><u><b>Wiki</b></u></a> page.</p>
+                        <p class="text-center">
+                            <img src="../img/portfolio/Manipulation/best_fast.gif" alt="Motion planning for YouBot mobile manipulator" style="width:80%"></p>
+                        <p class="img_description">Motion planning for YouBot mobile manipulator</p>
+                        <br>
+
                     <h3>Overview</h3>       
-                    <p>The project covers the following topics:</p>
-                    <h4>Generating the Kinematics Simulator of the YouBot</h4> 
-                    <p>In this part of the project, I wrote a code that computes the next configuration of the robot, given joints and wheels speed, and current robot configuration:
-                        $$ q = \begin{bmatrix} \phi_{chassis} \\ x_{chassis} \\ y_{chassis} \\ J_1 \\ J_2 \\ J_3 \\ J_4 \\ J_5 \\ W_1 \\ W_2 \\ W_3 \\ W_4 \\ Gripper \end{bmatrix} $$
-                    </p>
-                    <p>In this part I also applied restriction on the robot's velocity.</p>
-                    <br>
-                    <h4>Planning the End-Effector's Trajectory</h4>
-                    <p>In this part of the project, I wrote a code that generates a reference trajectory for the robot's end-effector, given the end-effector configuration
-                        in different states, relative to the world or the cube frame.</p>
-                    <p>I find the configurations along the robots path, as it goes through several waypoints:
-                        <ol>
-                            <li>Starts from rest in initial position</li>
-                            <li>From initial position to standoff position (near the cube position)</li>
-                            <li>From standoff position to grasp position</li>
-                            <li>Closing the gripper</li>
-                            <li>From grasp position to standoff position (near the cube goal position)</li>
-                            <li>From standoff position to goal position</li>
-                            <li>From goal position to final position</li>
-                            <li>opening the gripper</li>
-                            <li>From final position to standoff position</li>
-                        </ol>
-                    </p>
-                    <br>
-                    <h4>Applying Feedback Control to Drive the Robot in the Desired Trajectory</h4> 
-                    <p>In this part of the project, I wrote a code that returns the commanded end-effector twist and the error of each joint, given the current,
-                        desired and next end-effector configurations and the PI control gains.</p>
-                    <p>The feedback control of the the mobile manipulator is given by kinematic task-space feedforward plus feedback control law:
-                        $$ \nu(t) = [Ad_{X^{-1}X_d}]\nu_d(t) + K_pX_{err}(t) + K_i\int_0^t X_{err}(t)dt $$
-                    </p>
-                    <br>
-                    <p>For further information about this project, visit the project's wiki <a href="http://hades.mech.northwestern.edu/index.php/Mobile_Manipulation_Capstone" target="_blank" rel="noopener"><u><b>Here</b></u></a>.</p>
+                        <p>The project covers the following topics:</p>
+                        <br>
+
+                        <h4>Generating the Kinematics Simulator of the YouBot</h4> 
+                            <p>In this part of the project, I wrote a code that computes the next configuration of the robot, given joints and wheels speed, and current robot configuration:
+                                $$ q = \begin{bmatrix}  \phi_{chassis} \\
+                                                        x_{chassis} \\
+                                                        y_{chassis} \\
+                                                        J_1 \\
+                                                        J_2 \\
+                                                        J_3 \\
+                                                        J_4 \\
+                                                        J_5 \\
+                                                        W_1 \\
+                                                        W_2 \\
+                                                        W_3 \\
+                                                        W_4 \\
+                                                        Gripper \end{bmatrix} $$
+                            </p>
+                            <p>In this part I also applied restriction on the robot's velocity.</p>
+                            <br>
+
+                        <h4>Planning the End-Effector's Trajectory</h4>
+                            <p>In this part of the project, I wrote a code that generates a reference trajectory for the robot's end-effector,
+                                given the end-effector configuration in different states, relative to the world or the cube frame.</p>
+                            <p>I find the configurations along the robots path, as it goes through several waypoints:
+                                <ol>
+                                    <li>Starts from rest in initial position</li>
+                                    <li>From initial position to standoff position (near the cube position)</li>
+                                    <li>From standoff position to grasp position</li>
+                                    <li>Closing the gripper</li>
+                                    <li>From grasp position to standoff position (near the cube goal position)</li>
+                                    <li>From standoff position to goal position</li>
+                                    <li>From goal position to final position</li>
+                                    <li>opening the gripper</li>
+                                    <li>From final position to standoff position</li>
+                                </ol>
+                            </p>
+                            <br>
+
+                        <h4>Applying Feedback Control to Drive the Robot in the Desired Trajectory</h4> 
+                            <p>In this part of the project, I wrote a code that returns the commanded end-effector twist and the error of each joint, given the current,
+                                desired and next end-effector configurations and the PI control gains.</p>
+                            <p>The feedback control of the the mobile manipulator is given by kinematic task-space feedforward plus feedback control law:
+                                $$ \nu(t) = [Ad_{X^{-1}X_d}]\nu_d(t) + K_pX_{err}(t) + K_i\int_0^t X_{err}(t)dt $$
+                            </p>
+                            <br>
+
                     <h3>Results</h3>
-                    <h4>Motion Planning with Different Initial and Final Cube Position</h4> 
-                    <p>In this part, I simulated the the controlled motion with different initial and final cube position, and different initial robot's configuration.</p>
-                    <p>Here is a motion planning and control simulation for a different cube position:</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/Manipulation/newTask_fast.gif" alt="Motion planning for different cube positions" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">Initial position $(1, 1, 0)$, Final position $(1, -1, \frac {\pi}{2})$</p>
-                    <h4>Motion Planning with Different Control Gains</h4> 
-                    <p>In this part, I plotted the end-effector's twist error as a function of time, to explore the error's behavior when using different control gains.</p>
-                    <p>Here are two motion planning and control simulations for different control gains:</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/Manipulation/Xerr,kp=20,ki=5.png" alt="Motion planning for different cube positions" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">$k_p=20, k_i=5$ - Controlled motion</p>
-                    <p class="text-center">
-                        <img class="center" src="../img/portfolio/Manipulation/Xerr,kp=2,ki=40.png" alt="Motion planning for different cube positions" style="width:80%"></p>
-                    <p class="text-center" style="font-size:14px">$k_p=2, k_i=40$ - Overshoot motion</p>
+                        <h4>Motion Planning with Different Initial and Final Cube Position</h4> 
+                            <p>In this part, I simulated the the controlled motion with different initial and final cube position, and different initial robot's configuration.</p>
+                            <p>Here is a motion planning and control simulation for a different cube position:</p>
+                            <p class="text-center">
+                                <img src="../img/portfolio/Manipulation/newTask_fast.gif" alt="Motion planning for different cube positions" style="width:80%"></p>
+                            <p class="img_description">Initial position $(1, 1, 0)$, Final position $(1, -1, \frac {\pi}{2})$</p>
+                            <br>
+                            
+                        <h4>Motion Planning with Different Control Gains</h4> 
+                            <p>In this part, I plotted the end-effector's twist error as a function of time, to explore the error's behavior when using different control gains.</p>
+                            <p>Here are two motion planning and control simulations for different control gains:</p>
+                            <p class="text-center">
+                                <img src="../img/portfolio/Manipulation/Xerr,kp=20,ki=5.png" alt="Motion planning for different cube positions" style="width:80%"></p>
+                            <p class="img_description">$k_p=20, k_i=5$ - Controlled motion</p>
+                            <p class="text-center">
+                                <img src="../img/portfolio/Manipulation/Xerr,kp=2,ki=40.png" alt="Motion planning for different cube positions" style="width:80%"></p>
+                            <p class="img_description">$k_p=2, k_i=40$ - Overshoot motion</p>
                 </div>
 
                 <!-- footer -->
