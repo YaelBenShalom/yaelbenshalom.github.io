@@ -115,10 +115,12 @@ aside {
         color: $theme-primary;
         @include sans-serif-font;
         font-weight: 700;
+        font-size: 18px;
         text-transform: uppercase;
         &:hover,
         &:focus {
-            color: darken($theme-primary, 10%);
+            color: darken($theme-primary, 15%);
+            font-size: 20px;
         }
     }
     .nav {
@@ -127,10 +129,11 @@ aside {
             > a:focus {
                 text-transform: uppercase;
                 font-weight: 700;
-                font-size: 13px;
+                font-size: 14px;
                 color: $theme-dark;
                 &:hover {
-                    color: $theme-primary;
+                    color: darken($theme-primary, 15%);
+                    font-size: 16px;
                 }
             }
             &.active {
@@ -167,10 +170,11 @@ aside {
             border-color: rgba($theme-dark, .5);
             .navbar-header .navbar-brand {
                 color: $theme-primary;
-                font-size: 14px;
+                font-size: 18px;
                 &:hover,
                 &:focus {
-                    color: darken($theme-primary, 10%);
+                    color: darken($theme-primary, 15%);
+                    font-size: 20px;
                 }
             }
             .nav > li > a,
