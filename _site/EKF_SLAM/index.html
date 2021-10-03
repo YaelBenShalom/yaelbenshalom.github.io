@@ -130,14 +130,23 @@
                             <br>
 
                     <h3>Main Algorithms</h3>
-                        <h4>Rigid2d and Diff-Drive Kinematics</h4>
+                        <p>The SLAM pipeline can be describe using the following diagram:</p>
+                        <p class="text-center">
+                            <img src="../img/portfolio/EKF_SLAM/block_diagram.png" alt="EKF-SLAM block diagram" style="width:50%"></p>
+                        <p class="img_description">Project block diagram</p>
+                        <br>
+                        <p>Where the system gets measurements from the Lidar, performs feature detection using circle regression to find the landmarks location, Associating the measured data to the known landmarks, and update EKF SLAM using the associated landmarks and odometry calculations.</p>
+                        <p>Here are some explanations about the mentioned algorithms:</p>
+                        <br>
+
+                        <h4>Odometry</h4>
                             <p>The library <a href="https://github.com/YaelBenShalom/Sensing_Navigation_and_ML/blob/master/rigid2d/src/rigid2d.cpp" target="_blank" rel="noopener"><u><b>rigid2d</b></u></a> performs two-dimensional rigid body transformations,
                                 and the library <a href="https://github.com/YaelBenShalom/Sensing_Navigation_and_ML/blob/master/rigid2d/src/diff_drive.cpp" target="_blank" rel="noopener"><u><b>diff_drive</b></u></a> performs the kinematics of a differential drive robot.
-                                The latter's main porpuse is to convert wheel velocity to body twist and vice versa, and derive the odometry.</p>
+                                The latter's main purpose is to convert wheel velocity to body twist and vice versa, and derive the odometry.</p>
                             <br>
 
                             <h5>Twist to wheel velocity</h5>
-                                <p>Acording to [2], we can write the twist of each wheel as:
+                                <p>According to [2], we can write the twist of each wheel as:
                                     $$ V_i = A_{ib}\cdot V_b $$
                                     Where
                                     $$ V =  \begin{bmatrix} \dot\theta  \\
@@ -157,6 +166,11 @@
                                 <p class="text-center">
                                     <img src="../img/portfolio/EKF_SLAM/robot_sketch.png" alt="robot description" style="width:30%"></p>
                                 <p class="img_description">Differential drive robot description, where $D$ is the wheel base distance ans $r$ is the wheel radius</p>
+                                <br>
+                                <p class="text-center">
+                                    <img src="../img/portfolio/EKF_SLAM/turtlebot_rviz.png" alt="turtlebot in Rviz" style="width:50%"></p>
+                                <p class="img_description">Visualizing the turtlebot's frames in Rviz</p>
+                                <br>
                                 <br>
                                 <p>In conventional wheel we assume no slipping and no sliding ($V_y = 0$). Therefore:
                                     $$  \begin{bmatrix} \dot\theta  \\
@@ -212,7 +226,11 @@
                                     $$
                                 </p>
                                 <br>
-                                <p>The following video demonstrate the turtlebot3 moving in circular path using those libraries:</p>
+                                <p>The following videos demonstrate the turtlebot3 moving in circular path using those libraries:</p>
+                                <p class="text-center">
+                                    <img src="../img/portfolio/EKF_SLAM/turtlebot_rviz.gif" alt="turtlebot in Rviz" style="width:60%"></p>
+                                <p class="img_description">Demo of a simulated turtlebot3 moving in circular path using rigid2d and diff_drive libraries</p>
+                                <br>
                                 <p class="text-center">
                                     <img src="../img/portfolio/EKF_SLAM/circular_path.gif" alt="circular path" style="width:60%"></p>
                                 <p class="img_description">Demo of the turtlebot3 moving in circular path using rigid2d and diff_drive libraries</p>
