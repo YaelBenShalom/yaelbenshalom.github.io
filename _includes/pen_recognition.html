@@ -8,72 +8,98 @@
                 <!-- Header -->
                 <div class="modal-header">
                     <h2 class="text-center modal-title">Robotic Arm Control Using Computer Vision Perception</h2>
-                    <h5 class="text-center">ROS  |  Python  |  Robotic Manipulation  |  Motion Planning  |   Computer Vision  |  Range Imaging</h5>
+                    <h5 class="text-center">ROS | Python | Robotic Manipulation | Motion Planning | Computer Vision |
+                        Range Imaging</h5>
                     <h6 class="text-center">September 2020</h6>
                 </div>
-                
+
                 <!-- body -->
                 <div class="modal-body">
-                    <h3>Description</h3>       
-                        <p>In This project, I programmed a robotic arm to "steal" a pen from my hand and throw it on the floor. I used computer vision to detect and locate the pen in the space, and motion planning to control a robotic arm.</p>
-                        <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Who-Stole-My-Pen-Challenge" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                        <p class="text-center">
-                            <img src="../img/portfolio/pen_recognition/pen-recognition-and-stealing.gif" alt="Pen stealing" style="width:80%"></p>
-                        <p class="img_description">Pen recognition and grasping</p>
-                        <br>
-                    
-                    <h3>Overview</h3>
-                        <p>This project contains 2 parts:
-                            <ol>
-                                <li>A computer vision algorithm for recognizing the 3D location of a purple pen, using a D435i depth-camera.
-                                    <br>The software recognize the pen by its color, and locate its coordinate using the 3D camera.</li>
-                                <li>Controlling a PincherX robotic arm to accurately seize the pen under varying conditions, and throw it on the floor.</li>
-                            </ol>
-                        </p>
-                        <br>
-                        
-                        <h4>Part I: Pen Recognition</h4> 
-                            <p>In this part, I used computer vision packages (cv2) to analyze a video in order to find a purple pen. Then, I used the Realsense 3D camera to locate the pen's coordinates.</p>
-                            <p>The following video is a demonstration of the pen recognition, where the left image is the color frame and the right image is the equivalent depth frame, as captured from the Realsense camera:</p>
-                            <p class="text-center">
-                                <img src="../img/portfolio/pen_recognition/pen-recognition.gif" alt="Pen recognition" style="width:80%"></p>
-                            <p class="img_description">Pen recognition</p>
-                            <br>
+                    <h3>Description</h3>
+                    <p>In This project, I programmed a robotic arm to "steal" a pen from my hand and throw it on the
+                        floor. I used computer vision to detect and locate the pen in the space, and motion planning to
+                        control a robotic arm.</p>
+                    <p>Take a look at the project on my <a
+                            href="https://github.com/YaelBenShalom/Who-Stole-My-Pen-Challenge" target="_blank"
+                            rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/pen_recognition/pen-recognition-and-stealing.gif" alt="Pen stealing"
+                            style="width:80%">
+                    </p>
+                    <p class="img_description">Pen recognition and grasping</p>
+                    <br>
 
-                        <h4>Part II: Pen Stealing</h4> 
-                            <p>In this part, I used the interbotix motion and control packages to move the arm to a specified coordinates and steal the pen.</p>
-                            <p>The arm motion can be split to 4 steps:
-                                <ol>
-                                    <li>Move the arm to the specified coordinates with an open gripper. The coordinates of the pen found using the pen recognition on part I.</li>
-                                    <li>Close the gripper on the pen.</li>
-                                    <li>Move the arm to a location above the floor.</li>
-                                    <li>Open the gripper and release the pen on the floor.</li>
-                                </ol>
-                            </p>
-                            <p>The following video is a demonstration of the pen seizing:</p>
-                            <p class="text-center">
-                                <img src="../img/portfolio/pen_recognition/pen-stealing.gif" alt="Pen stealing" style="width:80%"></p>
-                            <p class="img_description">Pen grasping</p>
-                            <br>
+                    <h3>Overview</h3>
+                    <p>This project contains 2 parts:
+                    <ol>
+                        <li>A computer vision algorithm for recognizing the 3D location of a purple pen, using a D435i
+                            depth-camera.
+                            <br>The software recognize the pen by its color, and locate its coordinate using the 3D
+                            camera.
+                        </li>
+                        <li>Controlling a PincherX robotic arm to accurately seize the pen under varying conditions, and
+                            throw it on the floor.</li>
+                    </ol>
+                    </p>
+                    <br>
+
+                    <h4>Part I: Pen Recognition</h4>
+                    <p>In this part, I used computer vision packages (cv2) to analyze a video in order to find a purple
+                        pen. Then, I used the Realsense 3D camera to locate the pen's coordinates.</p>
+                    <p>The following video is a demonstration of the pen recognition, where the left image is the color
+                        frame and the right image is the equivalent depth frame, as captured from the Realsense camera:
+                    </p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/pen_recognition/pen-recognition.gif" alt="Pen recognition"
+                            style="width:80%">
+                    </p>
+                    <p class="img_description">Pen recognition</p>
+                    <br>
+
+                    <h4>Part II: Pen Stealing</h4>
+                    <p>In this part, I used the interbotix motion and control packages to move the arm to a specified
+                        coordinates and steal the pen.</p>
+                    <p>The arm motion can be split to 4 steps:
+                    <ol>
+                        <li>Move the arm to the specified coordinates with an open gripper. The coordinates of the pen
+                            found using the pen recognition on part I.</li>
+                        <li>Close the gripper on the pen.</li>
+                        <li>Move the arm to a location above the floor.</li>
+                        <li>Open the gripper and release the pen on the floor.</li>
+                    </ol>
+                    </p>
+                    <p>The following video is a demonstration of the pen seizing:</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/pen_recognition/pen-stealing.gif" alt="Pen stealing"
+                            style="width:80%">
+                    </p>
+                    <p class="img_description">Pen grasping</p>
+                    <br>
 
                     <h3>Similar Projects</h3>
-                        <p>In a similar project, I used the same arm and 3D camera to locate, pick, and place objects in the environment, while avoiding surrounding obstacles.</p>
-                        <p>Here is a little taste of this project:</p>
-                        <p class="text-center">
-                            <img src="../img/portfolio/pen_recognition/arm_move.gif" alt="Pick and place" style="width:80%"></p>
-                        <p class="img_description">Pick and place while avoiding obstacles</p>
-                        <p>Take a look at this project on my <a href="https://github.com/YaelBenShalom/Gazebo-Differential-Drive-and-Arm-Motion-Planning/tree/master/arm_move" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p>In a similar project, I used the same arm and 3D camera to locate, pick, and place objects in the
+                        environment, while avoiding surrounding obstacles.</p>
+                    <p>Here is a little taste of this project:</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/pen_recognition/arm_move.gif" alt="Pick and place" style="width:80%">
+                    </p>
+                    <p class="img_description">Pick and place while avoiding obstacles</p>
+                    <p>Take a look at this project on my <a
+                            href="https://github.com/YaelBenShalom/Gazebo-Differential-Drive-and-Arm-Motion-Planning/tree/master/arm_move"
+                            target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
                 </div>
 
                 <!-- footer -->
                 <div class="modal-footer">
                     <div class="text-center">
                         <p></p>
-                        <form action="https://github.com/YaelBenShalom/Who-Stole-My-Pen-Challenge" method="get" target="_blank">
+                        <form action="https://github.com/YaelBenShalom/Who-Stole-My-Pen-Challenge" method="get"
+                            target="_blank">
                             <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
                         </form>
                         <p></p>
-                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
+                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To
+                            Portfolio</button>
                         <p></p>
                     </div>
                 </div>

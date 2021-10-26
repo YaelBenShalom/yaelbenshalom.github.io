@@ -8,77 +8,110 @@
                 <!-- Header -->
                 <div class="modal-header">
                     <h2 class="text-center modal-title">Recycler Baxter</h2>
-                    <h5 class="text-center">ROS  |  Python  |  Computer Vision  |  Motion Planning  |  Inverse Kinematics  |  OpenCV  |  MoveIt</h5>
+                    <h5 class="text-center">ROS | Python | Computer Vision | Motion Planning | Inverse Kinematics |
+                        OpenCV | MoveIt</h5>
                     <h6 class="text-center">October 2020 - December 2020</h6>
                 </div>
-                
+
                 <!-- body -->
                 <div class="modal-body">
-                    <h3>Description</h3>       
-                        <p>In this project, my team and I built a ROS (Robot Operating System) package that allowed a Rethink Baxter robot to sort bottles and cans located in front of it, and drop them into separate recycling bins. We used computer vision to detect and locate several randomly placed objects, and used MoveIt methods to control the robot's kinematics.</p>
-                        <p>My rule was to program the object recognition and classification software and to build the segmentation and calibration library, which was later used by the robot to localize the objects.</p>
-                        <p><b>Team members</b>: Kailey Smith, Chris Aretakis, Jake Ketchum, Mingqing Yuan, and me.</p>
-                        <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Recycling-Baxter" target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                        <p></p>
-                        <p class="text-center">
-                            <img src="../img/portfolio/Baxter/Baxter.gif" alt="The Baxter in action" style="width:80%"></p>
-                        <p class="img_description">The Baxter in action</p>
-                        <br>
+                    <h3>Description</h3>
+                    <p>In this project, my team and I built a ROS (Robot Operating System) package that allowed a
+                        Rethink Baxter robot to sort bottles and cans located in front of it, and drop them into
+                        separate recycling bins. We used computer vision to detect and locate several randomly placed
+                        objects, and used MoveIt methods to control the robot's kinematics.</p>
+                    <p>My rule was to program the object recognition and classification software and to build the
+                        segmentation and calibration library, which was later used by the robot to localize the objects.
+                    </p>
+                    <p><b>Team members</b>: Kailey Smith, Chris Aretakis, Jake Ketchum, Mingqing Yuan, and me.</p>
+                    <p>Take a look at the project on my <a href="https://github.com/YaelBenShalom/Recycling-Baxter"
+                            target="_blank" rel="noopener"><u><b>GitHub</b></u></a> page.</p>
+                    <p></p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/Baxter/Baxter.gif" alt="The Baxter in action" style="width:80%">
+                    </p>
+                    <p class="img_description">The Baxter in action</p>
+                    <br>
 
                     <h3>System Overview</h3>
-                        <p>In order to recognize and separate the objects into two different recycle bins, our program is going through a number of steps:
-                            <ol>
-                                <li>Object detection</li>
-                                <li>Object segmentation and calibration</li>
-                                <li>Robot operation</li>
-                            </ol>
-                        </p>
-                        <br>
+                    <p>In order to recognize and separate the objects into two different recycle bins, our program is
+                        going through a number of steps:
+                    <ol>
+                        <li>Object detection</li>
+                        <li>Object segmentation and calibration</li>
+                        <li>Robot operation</li>
+                    </ol>
+                    </p>
+                    <br>
 
-                        <h4>Step I: Objects Detection</h4> 
-                            <p>In this step, we used a Realsense D435i camera to get a real-time image of the randomly placed objects. We used OpenCV and image processing libraries to detect and differentiate the objects into 2 groups - cans and bottles.</p>
-                            <p>The following video demonstrates the object differentiation software for several types of cans and bottles:</p>
-                            <p class="text-center">
-                                <img src="../img/portfolio/Baxter/CV.gif" alt="Recognizing and classifying bottles and cans" style="width:80%"></p>
-                            <p class="img_description">Recognizing and classifying bottles and cans</p>
-                            <br>
+                    <h4>Step I: Objects Detection</h4>
+                    <p>In this step, we used a Realsense D435i camera to get a real-time image of the randomly placed
+                        objects. We used OpenCV and image processing libraries to detect and differentiate the objects
+                        into 2 groups - cans and bottles.</p>
+                    <p>The following video demonstrates the object differentiation software for several types of cans
+                        and bottles:</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/Baxter/CV.gif" alt="Recognizing and classifying bottles and cans"
+                            style="width:80%">
+                    </p>
+                    <p class="img_description">Recognizing and classifying bottles and cans</p>
+                    <br>
 
-                        <h4>Step II: Objects Segmentation and Calibration</h4> 
-                            <p>In this step, we used the OpenCV library to find the objects segmentation (pixel location in the image). We also located 2 known calibration points (marked in green in the following image) to help us convert objects coordinates from pixels to meters.</p>
-                            <p>The following image demonstrates the differentiation between bottles, cans, and calibrations points:</p>
-                            <p class="text-center">
-                                <img src="../img/portfolio/Baxter/realsense.png" alt="Recognizing and classifying bottles and cans" style="width:60%">
-                            <p class="img_description">Recognizing and classifying bottles and cans</p>
-                            <br>
+                    <h4>Step II: Objects Segmentation and Calibration</h4>
+                    <p>In this step, we used the OpenCV library to find the objects segmentation (pixel location in the
+                        image). We also located 2 known calibration points (marked in green in the following image) to
+                        help us convert objects coordinates from pixels to meters.</p>
+                    <p>The following image demonstrates the differentiation between bottles, cans, and calibrations
+                        points:</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/Baxter/realsense.png"
+                            alt="Recognizing and classifying bottles and cans" style="width:60%">
+                    <p class="img_description">Recognizing and classifying bottles and cans</p>
+                    <br>
 
-                        <h4>Step III: Robot Operation</h4> 
-                            <p>In this step, we used MoveIt! library for the robot's motion planning and manipulation. The robot moves to the pre-detected objects' locations, grasps one object at a time, and throws it into the appropriate recycle bin. The robot repeats those actions until it finishes picking up all the objects on the table.</p>
-                            <p class="text-center">
-                                <img src="../img/portfolio/Baxter/rviz_baxter.png" alt="Simulated Baxter in Rviz" style="width:60%"></p>
-                            <p class="img_description">The simulated robot in Rviz</p>
-                            <br>
+                    <h4>Step III: Robot Operation</h4>
+                    <p>In this step, we used MoveIt! library for the robot's motion planning and manipulation. The robot
+                        moves to the pre-detected objects' locations, grasps one object at a time, and throws it into
+                        the appropriate recycle bin. The robot repeats those actions until it finishes picking up all
+                        the objects on the table.</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/Baxter/rviz_baxter.png" alt="Simulated Baxter in Rviz"
+                            style="width:60%">
+                    </p>
+                    <p class="img_description">The simulated robot in Rviz</p>
+                    <br>
 
-                            <p>The following video demonstrates the robot motion:</p>
-                            <p class="text-center">
-                                <img src="../img/portfolio/Baxter/Baxter_sorting.gif" alt="Sorting bottles and cans"></p>
-                            <p class="img_description">Sorting bottles and cans</p>
-                            <br>
+                    <p>The following video demonstrates the robot motion:</p>
+                    <p class="text-center">
+                        <img src="../img/portfolio/Baxter/Baxter_sorting.gif" alt="Sorting bottles and cans">
+                    </p>
+                    <p class="img_description">Sorting bottles and cans</p>
+                    <br>
 
                     <h3>Future Work</h3>
-                        <p>Later, as part of a machine learning based project - <a href="../ML_object_detection/index.html" target="_blank" rel="noopener"><u><b>Real-Time Object Recognition and Classification</b></u></a>, I returned to the Recycler Baxter projects and tried to solve the perception pipeline problems.</p>
-                        <p>The following video demonstrates the Baxter sorting robot uses the machine-learning perception pipeline to detect cans and bottles and separate them to two different recycle bins:</p>
-                        <div class="row no-gutter text-center">
-                            <div class="col-lg-5 col-sm-8">
-                                <p class="text-center">
-                                    <img src="../img/portfolio/ML_object_detection/detecting_baxter_table.gif" alt="Traffic-signs recognition and classification" style="width:115%"></p>
-                            </div>
-                            <div class="col-lg-5 col-sm-8 col-lg-offset-1">
-                                <p class="text-center">
-                                    <img src="../img/portfolio/ML_object_detection/detecting_baxter.gif" alt="Trash recognition and classification" style="width:115%"></p>
-                            </div>                    
+                    <p>Later, as part of a machine learning based project - <a href="../ML_object_detection/index.html"
+                            target="_blank" rel="noopener"><u><b>Real-Time Object Recognition and
+                                    Classification</b></u></a>, I returned to the Recycler Baxter projects and tried to
+                        solve the perception pipeline problems.</p>
+                    <p>The following video demonstrates the Baxter sorting robot uses the machine-learning perception
+                        pipeline to detect cans and bottles and separate them to two different recycle bins:</p>
+                    <div class="row no-gutter text-center">
+                        <div class="col-lg-5 col-sm-8">
+                            <p class="text-center">
+                                <img src="../img/portfolio/ML_object_detection/detecting_baxter_table.gif"
+                                    alt="Traffic-signs recognition and classification" style="width:115%">
+                            </p>
                         </div>
-                        <p class="img_description">Sorting bottles and cans using machine learning recognition method</p>
-                        <p>You can read more about this project <a href="../ML_object_detection/index.html" target="_blank" rel="noopener"><u><b>Here</b></u></a>.</p>
+                        <div class="col-lg-5 col-sm-8 col-lg-offset-1">
+                            <p class="text-center">
+                                <img src="../img/portfolio/ML_object_detection/detecting_baxter.gif"
+                                    alt="Trash recognition and classification" style="width:115%">
+                            </p>
+                        </div>
+                    </div>
+                    <p class="img_description">Sorting bottles and cans using machine learning recognition method</p>
+                    <p>You can read more about this project <a href="../ML_object_detection/index.html" target="_blank"
+                            rel="noopener"><u><b>Here</b></u></a>.</p>
                 </div>
 
                 <!-- footer -->
@@ -89,7 +122,8 @@
                             <button type="submit" class="btn btn-primary">Checkout Project on Github</button>
                         </form>
                         <p></p>
-                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To Portfolio</button>
+                        <button type="button" class="btn btn-primary center" onclick="history.back()">Back To
+                            Portfolio</button>
                         <p></p>
                     </div>
                 </div>
