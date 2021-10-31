@@ -62,11 +62,14 @@ p {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-ol, ul, dl {
+ol,
+ul,
+dl {
   font-size: 16px;
   line-height: 28px; }
 
-li, dd {
+li,
+dd {
   margin-bottom: 10px; }
 
 .img_description {
@@ -174,7 +177,7 @@ header {
     width: 100%; }
     header .header-content .header-content-inner h1 {
       font-size: 100px;
-      font-family: 'Anton', sans-serif;
+      font-family: "Anton", sans-serif;
       text-transform: uppercase;
       margin-top: 0;
       margin-bottom: 0; }
@@ -266,7 +269,7 @@ header {
 .text-primary {
   color: #222; }
 
-.no-gutter > [class*='col-'] {
+.no-gutter > [class*="col-"] {
   padding-right: 0;
   padding-left: 0; }
 
