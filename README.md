@@ -1,7 +1,7 @@
 # Yael Ben Shalom's Portfolio
 
 This is my personal portfolio.
-Website link - https://yaelbenshalom.github.io
+Website link - [https://yaelbenshalom.github.io](https://yaelbenshalom.github.io).
 
 
 ## User Guide
