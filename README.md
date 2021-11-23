@@ -1,6 +1,6 @@
 # Yael Ben Shalom's Portfolio
 
-This is my personal portfolio.
+This is my personal portfolio.<br>
 Website link - [https://yaelbenshalom.github.io](https://yaelbenshalom.github.io).
 
 
@@ -8,8 +8,8 @@ Website link - [https://yaelbenshalom.github.io](https://yaelbenshalom.github.io
 
 To open the website locally, `cd` into the repository and run the following commands:
 ```
-jekyll serve
 jekyll build
+jekyll serve
 ```
 (More information about the Jekyll installation can be found in this link - https://jekyllrb.com/docs/installation/ubuntu)
 

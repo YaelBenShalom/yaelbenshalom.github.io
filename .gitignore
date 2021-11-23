@@ -54,3 +54,4 @@ _testmain.go
 temp/
 
 .sass-cache/*
+.jekyll-cache/*
