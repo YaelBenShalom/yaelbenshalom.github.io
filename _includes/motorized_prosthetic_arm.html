@@ -18,37 +18,114 @@
                 <!-- Header -->
                 <div class="modal-header">
                     <h2 class="text-center modal-title">Motorized Prosthetic Arm</h2>
-                    <h5 class="text-center">Python | C | Biomechanics | Human Movement Analysis | Mechatronics | Motor
-                        Control</h5>
+                    <h5 class="text-center">Python | C | Biomechanics | Human Movement Analysis | Mechatronics | PID Control</h5>
                     <h6 class="text-center">April 2020 - December 2021</h6>
                 </div>
 
                 <!-- body -->
                 <div class="modal-body">
                     <h3>Description</h3>
-                    <p>...</p>
+                    <p>In this project, I designed, built, and controlled a motorized prosthetic elbow that imitates healthy arm motion to help amputees prevent falling,
+                        avoid injuries, and maintain balance while walking.<br>
+                        I analyzed arm movement data patterns and simulated full arm dynamics, to achieve better arm-motion predictions.</p>
                     <p>Take a look at the project on my <a
                             href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm" target="_blank"
                             rel="noopener"><u><b>GitHub</b></u></a> page.</p>
-                    <!-- <p class="text-center">
-                            <img src="../img/portfolio/dynamic_simulation/ME314-final-project.gif" alt="Dynamic simulation" style="width:60%"></p>
-                        <p class="img_description">Jack-in-a-box - dynamic simulation</p> -->
+                    <p class="text-center">
+                            <img src="../img/portfolio/motorized_prosthetic_arm/lab_device.gif" alt="Motorized prosthetic elbow" style="width:30%"></p>
+                    <p class="img_description">Motorized prosthetic elbow</p>
                     <br>
 
                     <h3>System Overview</h3>
-                    <p>...</p>
+                    <p>This project contained 3 parts:
+                    <ol>
+                        <li>Data collection</li>
+                        <li>Arm motion analysis and modeling</li>
+                        <li>Motor control to achieve the desired arm motion</li>
+                        <li>Mechanical design of the prosthetic elbow</li>
+                    </ol>
+                    </p>
                     <br>
 
-                    <h4>Electrical design</h4>
-                    <p>...</p>
+                    <h4>Data collection</h4>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/accelerometer.gif" width="70%">
+                    </p>
+                    <p class="img_description">Accelerometer sensors - back, shoulder, and elbow accelerations</p>
+                    <br>
+
+                    <h4>Modeling a human arm as a double pendulum</h4>
+                    <p>To Better understand the motion of a human arm and find a suitable motor to imitate the elbow motion,
+                    I modeled the arm as a double pendulum system. I used the system Lagrangian and measured shoulder and elbow
+                    angles to find the motion equations and extract the required elbow torque.</p>
+                    <p>The double pendulum can be described using the following system sketch, where the masses are located
+                    in the center of mass of every link:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/double_pendulum_diagram.png" width="35%">
+                    </p>
+                    <p class="img_description">Modeling the arm as a double pendulum - system sketch</p>
+                    <p>The kinetic and potential energy of the system is as follows:
+                    $$ KE = \frac{1}{2} \cdot m_1 \cdot (\dot{x_1}^2 + \dot{y_1}^2) + \frac{1}{2} \cdot m_2 \cdot (\dot{x_2}^2 + \dot{y_2}^2) $$
+                    $$ PE = m_1 \cdot g \cdot y1 + m_2 \cdot g \cdot y_2 $$
+
+                    where $m_1$ and $m_2$ are the masses of the upper arm and the forearm (respectively), $R_1$ and $R_2$ are the distance from
+                    the joint to the center of mass of the upper arm and the forearm (respectively), $g$ is the gravity constant, and:
+                    $$ x_1 = R_1 \cdot sin(\theta_1) $$
+                    $$ y_1 = -R_1 \cdot cos(\theta_1) $$
+                    $$ x_2 = R_1 \cdot sin(\theta_1) + R_2 \cdot sin(\theta_1 + \theta_2) $$
+                    $$ y_2 = -R_1 \cdot cos(\theta_1) - R_2 \cdot cos(\theta_1 + \theta_2) $$
+                    </p>
+                    <p>The Lagrangian is the difference between the two energies:
+                    $$ L(t) = KE - PE $$
+                    </p>
+                    <p>The Euler-Lagrange equation, the connection between the joints torque to the joints angles, can be computed using the
+                    following equation:
+                    $$ \tau_i(t) =
+                    \biggl(\frac{\partial L}{\partial \theta_i'}\biggr)' - \frac{\partial L}{\partial \theta_i} $$
+                    where $i$ is the joint number.
+                    </p>
+                    <p>Plugging in the measured angles returns the torque as a function of time. After scanning the maximum torque and velocity
+                    over all trials, I could find the maximum requirements for the motor.</p>
+                    <p>The following video shows an animation of the arm motion, represented as a double pendulum:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/arm_pendulum_animation.gif" width="75%">
+                    </p>
+                    <p class="img_description">Modeling the arm as a double pendulum - system animation</p>
+                    <br>
+
+                    <h4>Motor control</h4>
+                    <p>To control the motor, I used a 2 layer control system - feedback current and position control. The current was controlled
+                    by the ODrive's controller, and the position was controlled by a feedback PID controller.</p>
+                    <p>The control system diadram:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/control_diagram.png" width="70%">
+                    </p>
+                    <p class="img_description">Control system diagram</p>
+                    <br>
+                    <p>The PID position control diadram:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/pid_diagram.png" width="45%">
+                    </p>  
+                    <p class="img_description">PID controller diagram</p>
+                    <br>
+                    <p>An example of motor position control using the PID controller. The blue plot is the input angles, the red plot is the
+                    controlled output angles and the second graph is the error changing with time:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/graph.png" width="100%">
+                    </p>  
+                    <p class="img_description">Position control input (blue), output (red), and position error</p>
+                    <p>After tunning the controller, I reached the goal of maximum error of 5% from the maximum angle.</p>
                     <br>
 
                     <h4>Mechanical design</h4>
-                    <p>...</p>
-                    <br>
-
-                    <h4>Control System</h4>
-                    <p>...</p>
+                    {% comment %} <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/mech_design1.png" width="30%">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/mech_design2.png" width="35%">
+                    </p>   {% endcomment %}
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/mech_design.png" width="50%">
+                    </p>  
+                    <p class="img_description">The mechanical design of the device</p>
                     <br>
 
                     <h3>Future Work</h3>
