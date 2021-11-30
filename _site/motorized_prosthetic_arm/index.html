@@ -108,8 +108,10 @@
                 <div class="modal-body">
                     <h3>Description</h3>
                     <p>In this project, I designed, built, and controlled a motorized prosthetic elbow that imitates healthy arm motion to help amputees prevent falling,
-                        avoid injuries, and maintain balance while walking.<br>
-                        I analyzed arm movement data patterns and simulated full arm dynamics, to achieve better arm-motion predictions.</p>
+                        avoid injuries, and maintain balance while walking.
+                        According to Kent and Major's research$^{[1]}$, asymmetries in body mass and motion affect the regulation of whole-body angular momentum in
+                                individuals with upper limb absence and may increase fall risk.</p>
+                    <p>To better predict the arm-body motion, I analyzed arm movement data patterns and simulated full arm dynamics, and find the relation between walking speed to the angular velocity of the arm.</p>
                     <p>Take a look at the project on my <a
                             href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm" target="_blank"
                             rel="noopener"><u><b>GitHub</b></u></a> page.</p>
@@ -130,6 +132,7 @@
                     <br>
 
                     <h4>Data collection</h4>
+                    <p>In the data collection part of the project, I focused mainly on measuring prosthetics characteristics and collecting body-arm motion data.</p>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/accelerometer.gif" width="70%">
                     </p>
@@ -178,40 +181,61 @@
                     <h4>Motor control</h4>
                     <p>To control the motor, I used a 2 layer control system - feedback current and position control. The current was controlled
                     by the ODrive's controller, and the position was controlled by a feedback PID controller.</p>
-                    <p>The control system diadram:</p>
+                    <p>The control system diagram:</p>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/control_diagram.png" width="70%">
                     </p>
                     <p class="img_description">Control system diagram</p>
-                    <p>The PID position control diadram:</p>
+                    <p>The PID position control diagram:</p>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/pid_diagram.png" width="45%">
-                    </p>  
+                    </p>
                     <p class="img_description">PID controller diagram</p>
+                    <br>
                     <p>An example of motor position control using the PID controller. The blue plot is the input angles, the red plot is the
-                    controlled output angles and the second graph is the error changing with time:</p>
+                    controlled output angles, and the second graph is the error changing with time:</p>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/graph.png" width="100%">
                     </p>  
                     <p class="img_description">Position control input (blue), output (red), and position error</p>
-                    <p>After tunning the controller, I reached the goal of maximum error of 5% from the maximum angle.</p>
+                    <p>After tunning the controller, I reached the maximum error goal of 5% from the maximum angle.</p>
                     <br>
 
                     <h4>Mechanical design</h4>
+                    <p>The system contained several key parts:
+                    <ol>
+                        <li>Motor (T-Motor, R60 KV115)</li>
+                        <li>Magnetic rotary encoder (AS5048A)</li>
+                        <li>Driver (ODrive V3.6, 24V)</li>
+                        <li>Elbow packaging (based on Fillauer E-400)</li>
+                        <li>Battery</li>
+                    </ol>
+                    </p>
+                    <br>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/mech_design.png" width="50%">
                     </p>  
                     <p class="img_description">The mechanical design of the device</p>
                     <br>
-                    <p>The mechanical design is based on the design of the <a href="https://www.spsco.com/hosmer-e-400.html"
-                            target="_blank" rel="noopener"><u><b>FILLAUER's E-400</b></u></a> prosthetic elbow:
+                    <p>The mechanical design was based on <a href="https://www.spsco.com/hosmer-e-400.html"
+                            target="_blank" rel="noopener"><u><b>Fillauer's E-400</b></u></a> prosthetic elbow design:
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/E-400.png" width="30%">
                     </p>  
-                    <p class="img_description">FILLAUER's E-400 prosthetic elbow</p>
+                    <p class="img_description">Fillauer E-400 prosthetic elbow</p>
                     <br>
 
                     
+
+                    <h3>References</h3>
+                    <ul>
+                        <p>[1] Jenny A. Kent and Matthew J. Major, <a href="https://www.sciencedirect.com/science/article/abs/pii/S0268003320301248?casa_token=pASJip1O0HgAAAAA:ckojZ8F55NSTF2rAq7aVUub568BDZgnYYnto9notnVSgfjbTsNp5ktE2Q-ZMWgL62Lgc80yd" target="_blank"
+                                rel="noopener"><u>Asymmetry of mass and motion affects the regulation of whole-body angular momentum in
+                                individuals with upper limb absence</u></a>, Clinical Biomechanics (2020)</p>
+                        <p>[2] Suzanne M. McConn, Prosthetic Influence on Gait Stability in Individuals with Upper Limb Loss.
+                        Master's Thesis, Biomedical Engineering, Northwestern University (2016)</p>
+                        
+                    </ul>
                 </div>
 
                 <!-- footer -->

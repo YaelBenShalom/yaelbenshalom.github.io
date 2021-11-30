@@ -89,7 +89,7 @@
                     <br>
 
                     <h5>Twist to wheel velocity</h5>
-                    <p>According to [2], we can write the twist of each wheel as:
+                    <p>According to$^{[2]}$, we can write the twist of each wheel as:
                         $$ V_i = A_{ib}\cdot V_b $$
                         Where
                         $$ V = \begin{bmatrix} \dot\theta \\
@@ -152,7 +152,7 @@
                     <br>
 
                     <h5>Wheel velocity to twist</h5>
-                    <p>From [2], we can find the control to twist relationship by solving $ u = HV_b $ for $ V_b $ as:
+                    <p>From$^{[2]}$, we can find the control to twist relationship by solving $ u = HV_b $ for $ V_b $ as:
                         $$ V_b = H^\dagger u $$
                         Where $ H^\dagger = H^T(HH^T)^{-1} $ is the Moore-Penrose Pseudoinverse.
                     </p>
@@ -205,13 +205,13 @@
                             contained less than 3 points is discarded.
                         </li>
                         <li>Next, we need to solve a <b>supervised learning problem</b> - circular regression. The
-                            circular regression problem can be solved using circle fitting algorithm [3].
+                            circular regression problem can be solved using circle fitting algorithm$^{[3]}$.
                             For further Circle Fitting notation details, please refer to <a
                                 href="https://nu-msr.github.io/navigation_site/circle_fit.html" target="_blank"
                                 rel="noopener"><u><b>this webpage</b></u></a>.</li>
                         <li>Finally, we need to solve a <b>classification problem</b> - classify the clusters of points
                             into circle and non-circle to avoid false detections. This problem can be solved by
-                            arc/circle detection algorithm [4].</li>
+                            arc/circle detection algorithm$^{[4]}$.</li>
                     </ol>
                     </p>
                     <br>
