@@ -111,7 +111,7 @@
                         avoid injuries, and maintain balance while walking.
                         According to Kent and Major's research$^{[1]}$, asymmetries in body mass and motion affect the regulation of whole-body angular momentum in
                                 individuals with upper limb absence and may increase fall risk.</p>
-                    <p>To better predict the arm-body motion, I analyzed arm movement data patterns and simulated full arm dynamics, and find the relation between walking speed to the angular velocity of the arm.</p>
+                    <p>To better predict the arm-body motion, I analyzed arm movement data patterns, simulated full arm dynamics, and found the relation between walking speed to the angular velocity of the arm.</p>
                     <p>Take a look at the project on my <a
                             href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm" target="_blank"
                             rel="noopener"><u><b>GitHub</b></u></a> page.</p>
@@ -133,10 +133,43 @@
 
                     <h4>Data collection</h4>
                     <p>In the data collection part of the project, I focused mainly on measuring prosthetics characteristics and collecting body-arm motion data.</p>
+                    <br>
+
+                    <h5>Prosthetics Measurements</h5>
+                    <p>To get the size and mass of an average prosthesis, I measured more than 20 different prosthetic arms. To find the center of mass (COM) location,
+                    I used a center-of-mass estimation system$^{[1]}$. The system consisted of a wooden board with nails on both sides and a digital scale.
+                    One side of the board was located on the scale, and the other side was located on a leveled table.</p>
+                    <p>In the first step, I measured the center of mass of the wooden board:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/COM_calculation1.png" width="50%">
+                    </p>
+                    <p class="img_description">The free-body diagram used to calculate the COM of the prosthesis</p>
+                    <p>The COM of the board can be derived from the Torque Equilibrium equation of the system above:
+                    $$ \sum M_1 = F_1 \cdot L_S - W_B \cdot L_B = 0 $$
+                    $$ L_B = \frac{F_1 \cdot L_S}{W_B} $$
+                    Where $ W_B = m_B g $ is the weight of the board.
+                    </p>
+
+                    <p>Similarly, the COM of a prosthesis can be found by locating it above the wooden board and examining the change Torque
+                    Equilibrium equation, as described in the following image:</p>
+                    <p align="center">
+                        <img src="../img/portfolio/motorized_prosthetic_arm/COM_calculation2.png" width="50%">
+                    </p>
+                    <p class="img_description">The free-body diagram used to calculate the COM of the wooden board</p>
+                    <p>We can derive the COM of the prosthesis from the Torque Equilibrium equation of the updated system above:
+                    $$ \sum M_2 = F_2 \cdot L_S + W_P \cdot L_P - W_B \cdot L_B = 0 $$
+                    $$ L_P = \frac{F_2 \cdot L_S - W_B \cdot L_B}{W_P} $$
+                    </p>
+                    <br>
+
+                    <h5>Body-Arm Motion Measurements</h5>
+                    <p>To explore the body-arm motion while walking, and to find the correlation between walking speed and arm swing, I attached accelerometers to my
+                    lower back, upper arm, and forearm, and measured the angles, velocities, and accelerations. An example of the results are presented in the following video:</p>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/accelerometer.gif" width="70%">
                     </p>
                     <p class="img_description">Accelerometer sensors - back, shoulder, and elbow accelerations</p>
+                    <p>I used the collected data to model the arm motion in the next section of the project.</p>
                     <br>
 
                     <h4>Modeling a human arm as a double pendulum</h4>
