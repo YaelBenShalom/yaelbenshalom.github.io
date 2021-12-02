@@ -120,7 +120,7 @@
                     <p class="img_description">Motorized prosthetic elbow</p>
                     <br>
 
-                    <h3>System Overview</h3>
+                    <h3>Project Overview</h3>
                     <p>This project contained 3 parts:
                     <ol>
                         <li>Data collection</li>
@@ -213,7 +213,7 @@
 
                     <h4>Motor control</h4>
                     <p>To control the motor, I used a 2 layer control system - feedback current and position control. The current was controlled
-                    by the ODrive's controller, and the position was controlled by a feedback PID controller.</p>
+                    by the ODrive's controller, and the position was controlled by a feedback PID controller (with an optional feedforward component).</p>
                     <p>The control system diagram:</p>
                     <p align="center">
                         <img src="../img/portfolio/motorized_prosthetic_arm/control_diagram.png" width="70%">
@@ -238,8 +238,9 @@
                     <p>The system contained several key parts:
                     <ol>
                         <li>Motor (T-Motor, R60 KV115)</li>
-                        <li>Magnetic rotary encoder (AS5048A)</li>
+                        <li>Encoder PCB (Designed for a Magnetic Rotary Encoder (AS5048A))</li>
                         <li>Driver (ODrive V3.6, 24V)</li>
+                        <li>Odrive Adaptor PCB (Adaptor from ODrive connector to ethernet connector)</li>
                         <li>Elbow packaging (based on Fillauer E-400)</li>
                         <li>Battery</li>
                     </ol>
@@ -256,11 +257,22 @@
                         <img src="../img/portfolio/motorized_prosthetic_arm/E-400.png" width="30%">
                     </p>  
                     <p class="img_description">Fillauer E-400 prosthetic elbow</p>
-                    <p>All of the 3D CAD files can be found <a href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm/tree/master/mech_design" target="_blank"
+                    <p>All 3D CAD files can be found <a href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm/tree/master/mech_design" target="_blank"
+                                rel="noopener"><u><b>here</b></u></a>, and all circuit board schematics and manufacture files can be found <a href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm/tree/master/board_design" target="_blank"
                                 rel="noopener"><u><b>here</b></u></a>.</p>
                     <br>
 
-                    
+                    <h3>Future Work</h3>
+                    <p>
+                    <ol>
+                        <li>Test the system on patients with above-elbow amputees.</li>
+                        <li>Replace the ODrive with a smaller PCB, that will be installed in the elbow module. The PCB will contain a microprocessor,
+                        motor driver, current sensor, etc., to replace the ODrive's functionality.<br>
+                        A preliminary design of such PCB can be found <a href="https://github.com/YaelBenShalom/Motorized-Prosthetic-Arm/tree/master/board_design/main_pcb" target="_blank"
+                                rel="noopener"><u><b>here</b></u></a>.</li>
+                    </ol>
+                    </p>
+                    <br>
 
                     <h3>References</h3>
                     <ul>
